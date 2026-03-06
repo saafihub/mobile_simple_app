@@ -67,8 +67,8 @@ as the application grows.
     3. Create pytest framework based on design pattern(POM - Page Object Model):
         - Appium
         - Python
-        - Allure
         - pytest
+        - Allure
     4.  Instructions given below for prerequisites and setup, description of project, how to run tests
 
 **Prerequisites and Setup istructions:**
@@ -129,6 +129,7 @@ as the application grows.
        (a). Collect allure report using command below to get this need to install allure commandline utility to view results.
             1. allure generate reports/allure-results -o reports/allure-report --clean
             2. allure open reports/allure-report
+
 
 
 
