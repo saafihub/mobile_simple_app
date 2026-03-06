@@ -58,12 +58,9 @@ as the application grows.
       requirement.txt   # install dependencies
 
 **Task description:**
-
     1.  Download the SimpleLogin app(Android(*.apk) and Ios(*.ipa))
     2.  Create tests(features and stories) for SimpleLogin app 
-    
 ![Testcases](img.png)
-
     3. Create pytest framework based on design pattern(POM - Page Object Model):
         - Appium
         - Python
@@ -72,12 +69,10 @@ as the application grows.
     4.  Instructions given below for prerequisites and setup, description of project, how to run tests
 
 **Prerequisites and Setup istructions for Andriod and Ios:**
-
     1. Python 3.12 (https://www.python.org/downloads/)
     2. Install requirements `pip install -r requirements.txt`
 
 **Andriod**
-
     1. Appium Server (https://github.com/appium/appium-desktop/releases/tag/v1.22.3-4) OR Install Node.js and Install Appium(<v2.0)
     2. Android Studio/SDK (https://developer.android.com/studio/install)
     3. Install android device emulator via device manager or plug real device or bluestacks
@@ -85,7 +80,6 @@ as the application grows.
     5. Start run appium server or (CMD: run appium) if installed via Node.js.
 
 **IOS (Must need Mac OS)**
-
     1. Appium Server (https://github.com/appium/appium-desktop/releases/tag/v1.22.3-4)
     2. Install Xcode from App store to select simulator or plug real device 
     3. Install Carthage and set up WebDriverAgent
@@ -93,33 +87,27 @@ as the application grows.
     5. Run appium server
 
 **How to run tests in project:**
-
-    1. Check current device name in conftest.py. If device name is not match with `CURRENT_DEVICE` change variable
-       value to device name and details
+    1. Check current device name in config.ini. If device name is not match with `CURRENT_DEVICE` change variable value to device name and details
     2. Run tests for android (example: `pytest test_android.py --runmode=local --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html`)
     3. Run tests for ios (example: `pytest test_ios.py --runmode=local --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html')
 
 **To Run in device farms(Browserstack, saucelabs, Aws devicefarms etc):**
-
-    1. Check browserstack set in conftest.py correcly. If device name is not match with `BROWSERSTACK_DEVICES` change variable
-       value to correct device name, credentials  and app details.
-    2. Run tests for android (example: `pytest test_android.py --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html`)
-    3. Run tests for ios (example: `pytest test_ios.py --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html')
+    1. Check browserstack set in config.ini correcly. If device name is not match with `BROWSERSTACK_DEVICES` change variable value to correct device name, credentials  and app details.
+    2. Run tests for android (example: `pytest tests/test_android.py --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html`)
+    3. Run tests for ios (example: `pytest tests/test_ios.py --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html')
 
 **To Run in parallel with multiple devices either with Browserstack or locally:**
-
     1. Local : pytest -n 2 --runmode=local --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html.
     2. Browserstack : pytest -n 2 --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html
     
 
 **Other Report Formats**
-
-    1. Html Report : pytest test_*.py --html=./report/testreport.html
-    2. pytest-htmlreporter : pytest test_*.py --html-report=./report/pytest_html_report.html
-    3. Allure Report : pytest test_*.py --alluredir=reports/allure-results
+    1. pytest-htmlreporter : pytest test_*.py --html-report=./report/pytest_html_report.html
+    2. Allure Report : pytest test_*.py --alluredir=reports/allure-results
        (a). Collect allure report using command below to get this need to install allure commandline utility and enjoy results!
             1. allure generate reports/allure-results -o reports/allure-report --clean
             2. allure open reports/allure-report
+
 
 
 
