@@ -13,12 +13,12 @@ as the application grows.
 
     2. Modular and Layered Architecture:Each layer of the framework is decoupled, meaning that changes in one layer (e.g., page object or locators) do not directly affect the other layers.
         Layer 1: Test Data Layer: Stores the test data (cases.json or excel etc)
-        Layer 2: Page Object Layer: Page classes that encapsulate UI elements and methods to interact with those elements.
+        Layer 2: Page Object Layer: Page classes that encapsulate ui elements and methods to interact with those elements.
         Layer 3: Test Logic Layer: Includes the test actions that drive the interactions, calling methods from the page classes.
         Layer 4: Test Runner Layer: The entry point to initiate test execution, manage setup and teardown and other configurations.
-        Layer 5: Test Report Layer: Generate detailed test reports after execution that include passed, failed, and skipped test cases.
+        Layer 5: Test Report Layer: Generate detailed test reports after execution.
     
-    3. Test Execution Flow: The test execution process will be managed through a test runner like pytest, nose, junit, testng etc.
+    3. Test Execution Flow: The test execution process will be managed through a test runner with pytest.
 
 **Test Architecture and Tools:**
 
@@ -130,6 +130,7 @@ as the application grows.
        (a). Collect allure report using command below to get this need to install allure commandline utility to view results.
             1. allure generate reports/allure-results -o reports/allure-report --clean
             2. allure open reports/allure-report
+
 
 
 
