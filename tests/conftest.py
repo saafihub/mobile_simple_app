@@ -23,10 +23,11 @@ config_path = os.path.join(
     "config.ini"
 )
 config.read(config_path)
-
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+APP_PATH = config.get("localrun", "APP_PATH_APK")
 LOCAL_HOST = config.get("localrun", "LOCAL_HOST")
 CURRENT_DEVICE = config.get("localrun", "CURRENT_DEVICE")
-APP_PATH_APK = os.path.join(os.path.dirname(__file__), config.get("localrun", "APP_PATH_APK"))
+APP_PATH_APK = os.path.join(BASE_DIR, APP_PATH)
 ACTIVITY = config.get("localrun", "ACTIVITY")
 BROWSERSTACK_USERNAME = config.get("devicefarm", "BROWSERSTACK_USERNAME")
 BROWSERSTACK_ACCESS_KEY = config.get("devicefarm", "BROWSERSTACK_ACCESS_KEY")
@@ -216,3 +217,4 @@ def _add_device_labels(request):
         allure.dynamic.label("device", device["deviceName"])
         allure.dynamic.label("platformVersion", device["platformVersion"])
         allure.dynamic.label("execution", "browserstack")
+
