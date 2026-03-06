@@ -71,10 +71,18 @@ as the application grows.
         - pytest
     4.  Instructions given below for prerequisites and setup, description of project, how to run tests
 
-**Prerequisites and Setup istructions for Andriod and Ios:**
+**Prerequisites and Setup istructions:**
 
-    1. Python 3.12 (https://www.python.org/downloads/)
-    2. Install requirements `pip install -r requirements.txt`
+    1. Install Python 3.12 (https://www.python.org/downloads/)
+    2. Clone the repository to your local machine:  'mobile_simple_app'.
+        - git clone https://github.com/saafihub/mobile_simple_app.git
+        - cd mobile_simple_app
+    3. Build the Project(Steps)
+        1. pip install virtualenv
+        2. To isolate virtual environment, Goto 'mobile_simple_app'> Type Command: 'python -m venv mobile_tests'
+        3. To get isolated environment, Go to folder 'mobile_tests>Scripts' and Type: 'activate'
+        4. Go back to root folder 'mobile_simple_app'
+        5. To install all necessary packages, need to run this requirement file, Type: 'pip install -r requirements.txt'
 
 **Andriod**
 
@@ -82,9 +90,9 @@ as the application grows.
     2. Android Studio/SDK (https://developer.android.com/studio/install)
     3. Install android device emulator via device manager or plug real device or bluestacks
     4. Run android device (if you are working with emulator check plugged devices via cmd `adb devices` and copy current device name)
-    5. Start run appium server or (CMD: run appium) if installed via Node.js.
+    5. Start run appium server or (CMD: 'appium') if installed via Node.js.
 
-**IOS (Must need Mac OS)**
+**IOS (need macOS)**
 
     1. Appium Server (https://github.com/appium/appium-desktop/releases/tag/v1.22.3-4)
     2. Install Xcode from App store to select simulator or plug real device 
