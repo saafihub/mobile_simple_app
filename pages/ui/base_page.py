@@ -8,7 +8,7 @@ from selenium.common.exceptions import TimeoutException, StaleElementReferenceEx
 from utils.log import log
 from waiting import wait
 
-PADE_LOAD_TIME = 30  # sec
+PADE_LOAD_TIME = 30 
 POLL_FREQUENCY = 0.2
 
 
@@ -126,4 +126,5 @@ class BasePage:
 
     def get_app_back(self):
         self.wait.until(lambda d: d.query_app_state("io.simplelogin.android") == 5)
+
 
