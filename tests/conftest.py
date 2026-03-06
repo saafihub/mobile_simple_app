@@ -132,6 +132,7 @@ def driver(request):
             )
 
         if drv and drv.session_id:
+            drv.terminate_app("io.simplelogin.android")
             drv.quit()
 
     except Exception as e:
@@ -222,5 +223,6 @@ def _add_device_labels(request):
         allure.dynamic.label("device", device["deviceName"])
         allure.dynamic.label("platformVersion", device["platformVersion"])
         allure.dynamic.label("execution", "browserstack")
+
 
 
