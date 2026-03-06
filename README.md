@@ -52,6 +52,7 @@ as the application grows.
       ├── reports       # generated reports etc
       ├── utils         # Utility classes (e.g., helper, logger etc)
       ├── tests         # test runner files to initiate test execution
+      config.ini        # store env, device and server settings
       pytest.ini        # init files
       README.md         # Instruction file.
       requirement.txt   # install dependencies
@@ -119,6 +120,7 @@ as the application grows.
        (a). Collect allure report using command below to get this need to install allure commandline utility and enjoy results!
             1. allure generate reports/allure-results -o reports/allure-report --clean
             2. allure open reports/allure-report
+
 
 
 
