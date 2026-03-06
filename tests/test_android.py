@@ -6,6 +6,7 @@ import subprocess
 from pages.action.mylogin import MyLogin
 from pages.action.emailalias import EmailAlias
 from pages.action.contactalias import ContactAlias
+from utils.log import log
 from utils.data_generator import get_random_string, get_current_date_and_time
 
 testdata = ph.join(ph.dirname(__file__), "../data/cases.json")
@@ -14,7 +15,6 @@ with open(testdata) as f:
     test_data = json.load(f)
 signup_data = [(v['ename'], v['pname'], v['dsp']) for v in test_data["signup_cases"].values()]
 login_data = [(v['ename'], v['pname']) for v in test_data["login_cases"].values()]
-
 
 @allure.feature("SimpleLogin Home Page")
 @allure.story("Landing Page with valid Version")
@@ -193,7 +193,9 @@ def test_session_retained_after_background(driver, runmode, ename, pname):
     driver.implicitly_wait(5)
     dnow = get_current_date_and_time()
     EmailAlias(driver).check_all_texts_available()
+    log.info('RUNMODE-1 : '+str(runmode))
     if runmode == 'local':
+        driver.implicitly_wait(2)
         MyLogin(driver).login_page.click_on_more_items()
         MyLogin(driver).Signout_app()
 
