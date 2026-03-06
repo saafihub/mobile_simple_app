@@ -99,6 +99,7 @@ as the application grows.
     3. Run tests for ios (example: `pytest test_ios.py --runmode=local --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html')
 
 **To Run in device farms(Browserstack, saucelabs, Aws devicefarms etc):**
+
     1. Check browserstack set in config.ini correcly. If device name is not match with `BROWSERSTACK_DEVICES` change variable value to correct device name, credentials  and app details.
     2. Run tests for android (example: `pytest tests/test_android.py --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html`)
     3. Run tests for ios (example: `pytest tests/test_ios.py --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html')
@@ -115,3 +116,4 @@ as the application grows.
        (a). Collect allure report using command below to get this need to install allure commandline utility and enjoy results!
             1. allure generate reports/allure-results -o reports/allure-report --clean
             2. allure open reports/allure-report
+
