@@ -1,15 +1,15 @@
 import os
 import json
-import os.path as ph
 import pytest
 import allure
-from allure_commons.types import AttachmentType
-from appium import webdriver
 import warnings
 import platform
 import shutil
+from allure_commons.types import AttachmentType
+from configparser import ConfigParser
+from appium import webdriver
+from utils.log import log
 from datetime import datetime
-
 warnings.filterwarnings(
     "ignore",
     category=UserWarning,
@@ -17,24 +17,23 @@ warnings.filterwarnings(
 )
 
 PAGE_LOAD_TIME = 30
+config = ConfigParser()
+config_path = os.path.join(
+    os.path.dirname(os.path.dirname(__file__)),
+    "config.ini"
+)
+config.read(config_path)
 
-LOCAL_HOST = "http://127.0.0.1:4723/wd/hub"
-CURRENT_DEVICE = "emulator-5554"
-
-APP_PATH_APK = ph.join(ph.dirname(__file__), "../app/SimpleLogin.apk")
-ACTIVITY = "io.simplelogin.android.module.login.LoginActivity"
-
-BROWSERSTACK_USERNAME = os.getenv("BROWSERSTACK_USERNAME", "browserstack_username")
-BROWSERSTACK_ACCESS_KEY = os.getenv("BROWSERSTACK_ACCESS_KEY", "browserstack_access_key")
-
-APP_ID = "bs://0b3f38c292900b027c035fa3594e91c3a960333b"
-
-BROWSERSTACK_DEVICES = [
-    {"deviceName": "Samsung Galaxy S22", "platformVersion": "12.0"},
-    {"deviceName": "Google Pixel 7", "platformVersion": "13.0"},
-]
-ALLURE_RESULTS_DIR = "reports/allure-results"
-ALLURE_REPORT_DIR = "reports/allure-report"
+LOCAL_HOST = config.get("localrun", "LOCAL_HOST")
+CURRENT_DEVICE = config.get("localrun", "CURRENT_DEVICE")
+APP_PATH_APK = os.path.join(os.path.dirname(__file__), config.get("localrun", "APP_PATH_APK"))
+ACTIVITY = config.get("localrun", "ACTIVITY")
+BROWSERSTACK_USERNAME = config.get("devicefarm", "BROWSERSTACK_USERNAME")
+BROWSERSTACK_ACCESS_KEY = config.get("devicefarm", "BROWSERSTACK_ACCESS_KEY")
+APP_ID = config.get("devicefarm", "APP_ID")
+BROWSERSTACK_DEVICES = config.get("devicefarm", "BROWSERSTACK_DEVICES")
+ALLURE_RESULTS_DIR = config.get("reportallure", "ALLURE_RESULTS_DIR")
+ALLURE_REPORT_DIR = config.get("reportallure", "ALLURE_REPORT_DIR")
 
 def pytest_addoption(parser):
     parser.addoption(
@@ -138,7 +137,6 @@ def driver(request):
     except Exception as e:
         print(f"[WARN] Teardown issue: {e}")
 
-
 def _get_local_driver():
     caps = {
         "platformName": "Android",
@@ -149,9 +147,8 @@ def _get_local_driver():
         "noReset": True,
         "newCommandTimeout": 300,
     }
-
+    log.info(f"Device: {CURRENT_DEVICE}")
     return webdriver.Remote(LOCAL_HOST, caps)
-
 
 def _get_browserstack_driver(request):
     device_index = int(os.getenv("DEVICE_INDEX", 0))
@@ -173,11 +170,10 @@ def _get_browserstack_driver(request):
         "browserstack.networkLogs": True,
         "browserstack.consoleLogs": "info",
     }
-
+    log.info(f"Device: {device}")
     url = f"https://{BROWSERSTACK_USERNAME}:{BROWSERSTACK_ACCESS_KEY}@hub-cloud.browserstack.com/wd/hub"
 
     return webdriver.Remote(url, caps)
-
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
@@ -189,7 +185,6 @@ def pytest_runtest_makereport(item, call):
 
     driver = item.funcargs.get("driver")
 
-    # ---------------- Allure Screenshot ----------------
     if report.failed and driver:
         try:
             allure.attach(
@@ -200,13 +195,11 @@ def pytest_runtest_makereport(item, call):
         except Exception:
             pass
 
-    # -------- Store result for teardown --------
     if report.failed:
         reason = report.longreprtext[:200].replace('"', "'")
         item.test_result = {"status": "failed", "reason": reason}
     else:
         item.test_result = {"status": "passed", "reason": "Test passed"}
-
 
 @pytest.fixture(autouse=True)
 def _add_device_labels(request):
@@ -223,6 +216,3 @@ def _add_device_labels(request):
         allure.dynamic.label("device", device["deviceName"])
         allure.dynamic.label("platformVersion", device["platformVersion"])
         allure.dynamic.label("execution", "browserstack")
-
-
-
