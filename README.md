@@ -33,7 +33,7 @@ as the application grows.
     2. It supports multiple programming languages through the WebDriver protocol, making it flexible.
     3. It uses the WebDriver protocol, and the Selenium Python bindings implement that protocol, allowing 
        Python code to control mobile apps the same way Selenium controls web browsers.
-    4. Using Python + Appium + Selenium bindings provides stable WebDriver APIs, better compatibility, and reusable automation 
+    4. Using Python + Appium + Selenium bindings provides stable WebDriver APIs, better compatibility, and reusable design 
        patterns (e.g., Page Object Model, waits, locators).
     5. It enables cross-platform mobile automation (Android/iOS) with familiar Selenium-style commands while leveraging 
        Python’s simplicity and large testing ecosystem.
@@ -133,6 +133,7 @@ as the application grows.
        (a). Collect allure report using command below to get this need to install allure commandline utility to view results.
             1. allure generate reports/allure-results -o reports/allure-report --clean
             2. allure open reports/allure-report
+
 
 
 
