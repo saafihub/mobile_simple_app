@@ -18,7 +18,7 @@ as the application grows.
         Layer 4: Test Runner Layer: The entry point to initiate test execution, manage setup and teardown and other configurations.
         Layer 5: Test Report Layer: Generate detailed test reports after execution.
     
-    3. Test Execution Flow: The test execution process will be managed through a test runner with pytest.
+    3. Test Execution Flow: The test execution process will be managed through a test runner like pytest, nose, junit, testng etc.
 
 **Test Architecture and Tools:**
 
@@ -89,7 +89,7 @@ as the application grows.
     1. Appium Server (https://github.com/appium/appium-desktop/releases/tag/v1.22.3-4) OR Install Node.js and Install Appium(<v2.0)
     2. Android Studio/SDK (https://developer.android.com/studio/install)
     3. Install android device emulator via device manager or plug real device or bluestacks
-    4. Run android device (if you are working with emulators,real device or bluestacks. Check devices via cmd `adb devices` and copy current device name)
+    4. Run android device (if you are working with emulator,real device or bluestacks. Check devices via cmd `adb devices` and copy current device name)
     5. Start run appium server or (CMD: 'appium') if installed via Node.js.
 
 **IOS (need macOS)**
@@ -123,6 +123,11 @@ as the application grows.
     1. Local : pytest tests/test_android.py --reruns 2 --reruns-delay 2  --runmode=local --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html.
     2. Browserstack : pytest tests/test_android.py --reruns 2 --reruns-delay 2  --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html
 
+**To run tests with tags(smoke, regression etc) :**
+
+    1. Local : pytest tests/test_android.py -m smoke or regression --runmode=local --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html.
+    2. Browserstack : pytest tests/test_android.py -m smoke or regression --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html
+
 **Report Formats**
 
     1. pytest-htmlreporter : pytest test_*.py --html-report=./report/pytest_html_report.html
@@ -130,12 +135,6 @@ as the application grows.
        (a). Collect allure report using command below to get this need to install allure commandline utility to view results.
             1. allure generate reports/allure-results -o reports/allure-report --clean
             2. allure open reports/allure-report
-
-
-
-
-
-
 
 
 
