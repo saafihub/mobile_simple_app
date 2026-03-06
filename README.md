@@ -106,8 +106,8 @@ as the application grows.
 
 **To Run in parallel with multiple devices either with Browserstack or locally:**
 
-    1. Local : pytest -n 2 --runmode=local --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html.
-    2. Browserstack : pytest -n 2 --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html
+    1. Local : pytest tests/test_android.py -n 2 --runmode=local --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html.
+    2. Browserstack : pytest tests/test_android.py -n 2 --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html
     
 **Report Formats**
 
@@ -116,4 +116,5 @@ as the application grows.
        (a). Collect allure report using command below to get this need to install allure commandline utility and enjoy results!
             1. allure generate reports/allure-results -o reports/allure-report --clean
             2. allure open reports/allure-report
+
 
