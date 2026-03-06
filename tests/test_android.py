@@ -16,6 +16,7 @@ with open(testdata) as f:
 signup_data = [(v['ename'], v['pname'], v['dsp']) for v in test_data["signup_cases"].values()]
 login_data = [(v['ename'], v['pname']) for v in test_data["login_cases"].values()]
 
+
 @allure.feature("SimpleLogin Home Page")
 @allure.story("Landing Page with valid Version")
 @allure.description(
@@ -72,6 +73,8 @@ def test_signup_details(driver, ename, pname, dsp):
     """)
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_given_valid_details_success_login(driver, ename, pname):
+    # ename = 'ssisaa01@gmail.com'
+    # pname = 'saeed12345678'
     MyLogin(driver).app_login(ename=ename, pname=pname)
     MyLogin(driver).check_success_login_text()
 
@@ -89,6 +92,8 @@ def test_given_valid_details_success_login(driver, ename, pname):
     """)
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_create_alias_for_an_email(driver, ename, pname):
+    # ename = 'ssisaa01@gmail.com'
+    # pname = 'saeed12345678'
     MyLogin(driver).app_login(ename=ename, pname=pname)
     aliasx = get_random_string(6)
     EmailAlias(driver).alias_creation(alias=aliasx, aliasname=get_random_string(12), aliasnote='NewsLetters')
@@ -107,6 +112,8 @@ def test_create_alias_for_an_email(driver, ename, pname):
     """)
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_alias_email_handle_validate(driver, ename, pname):
+    # ename = 'ssisaa01@gmail.com'
+    # pname = 'saeed12345678'
     MyLogin(driver).app_login(ename=ename, pname=pname)
     EmailAlias(driver).check_alias_handle(email_handle=0)
 
@@ -124,6 +131,8 @@ def test_alias_email_handle_validate(driver, ename, pname):
     """)
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_contact_alias_email_creation(driver, ename, pname):
+    # ename = 'ssisaa01@gmail.com'
+    # pname = 'saeed12345678'
     MyLogin(driver).app_login(ename=ename, pname=pname)
     ContactAlias(driver).contact_creation(emailalias='ssisaa7@gmail.com')
 
@@ -141,6 +150,8 @@ def test_contact_alias_email_creation(driver, ename, pname):
     """)
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_send_alias_email_contact(driver, runmode, ename, pname):
+    # ename = 'ssisaa01@gmail.com'
+    # pname = 'saeed12345678'
     MyLogin(driver).app_login(ename=ename, pname=pname)
     dnow = get_current_date_and_time()
     ContactAlias(driver).contact_alias_email(subject='Test Message subject(' + dnow + ')',
@@ -164,6 +175,8 @@ def test_send_alias_email_contact(driver, runmode, ename, pname):
     """)
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_session_retained_after_background(driver, runmode, ename, pname):
+    # ename = 'ssisaa01@gmail.com'
+    # pname = 'saeed12345678'
     MyLogin(driver).app_login(ename=ename, pname=pname)
     MyLogin(driver).check_success_login_text()
 
@@ -181,7 +194,7 @@ def test_session_retained_after_background(driver, runmode, ename, pname):
     driver.implicitly_wait(5)
     dnow = get_current_date_and_time()
     EmailAlias(driver).check_all_texts_available()
-    log.info('RUNMODE-1 : '+str(runmode))
+    log.info('RUNMODE-1 : ' + str(runmode))
     if runmode == 'local':
         driver.implicitly_wait(2)
         MyLogin(driver).login_page.click_on_more_items()
@@ -201,6 +214,7 @@ def test_session_retained_after_background(driver, runmode, ename, pname):
     """)
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_alias_email_name(driver, ename, pname):
+    # ename = 'ssisaa01@gmail.com'
+    # pname = 'saeed12345678'
     MyLogin(driver).app_login(ename=ename, pname=pname)
     EmailAlias(driver).validate_email_alias()
-
