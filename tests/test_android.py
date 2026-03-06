@@ -26,6 +26,7 @@ login_data = [(v['ename'], v['pname']) for v in test_data["login_cases"].values(
     1. Open app
     2. Check app launched with app version available in landing page
     """)
+@pytest.mark.smoke
 def test_landing_page_once_launch(driver):
     MyLogin(driver).check_sl_app_version()
     MyLogin(driver).check_sl_app_image()
@@ -40,6 +41,7 @@ def test_landing_page_once_launch(driver):
     1. Open app
     2. Check the given button labals/texts  in landing page
     """)
+@pytest.mark.smoke
 def test_given_landingpage_details_button_texts(driver):
     MyLogin(driver).Check_buttons_texts_available()
 
@@ -55,6 +57,7 @@ def test_given_landingpage_details_button_texts(driver):
     3. Enter invalid details on email and password fields
     4. Check appropriate banner message displays.
     """)
+@pytest.mark.smoke
 @pytest.mark.parametrize("ename,pname,dsp", signup_data)
 def test_signup_details(driver, ename, pname, dsp):
     MyLogin(driver).Check_signup_error_details(ename=ename, pname=pname, dsp=dsp)
@@ -71,6 +74,7 @@ def test_signup_details(driver, ename, pname, dsp):
     3. Enter valid details on email and password fields
     4. Moved to Alias page with Appropriate text should display.
     """)
+@pytest.mark.smoke
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_given_valid_details_success_login(driver, ename, pname):
     # ename = 'ssisaa01@gmail.com'
@@ -90,6 +94,7 @@ def test_given_valid_details_success_login(driver, ename, pname):
     3. Enter valid details on email and password fields
     4. Moved to Alias page with Appropriate text should display.
     """)
+@pytest.mark.emailalias
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_create_alias_for_an_email(driver, ename, pname):
     # ename = 'ssisaa01@gmail.com'
@@ -110,6 +115,7 @@ def test_create_alias_for_an_email(driver, ename, pname):
     3. Enter valid details on email and password fields
     4. Check Email handles after alias have been created
     """)
+@pytest.mark.emailalias
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_alias_email_handle_validate(driver, ename, pname):
     # ename = 'ssisaa01@gmail.com'
@@ -129,6 +135,7 @@ def test_alias_email_handle_validate(driver, ename, pname):
     3. Enter valid details on email and password fields
     4. Once Alias get created, Try create an Contact email for that alias email.
     """)
+@pytest.mark.contactalias
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_contact_alias_email_creation(driver, ename, pname):
     # ename = 'ssisaa01@gmail.com'
@@ -148,6 +155,7 @@ def test_contact_alias_email_creation(driver, ename, pname):
     3. Enter valid details on email and password fields
     4. Once Contact Email is created, Send an Email with an Alias as Sender.
     """)
+@pytest.mark.contactalias
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_send_alias_email_contact(driver, runmode, ename, pname):
     # ename = 'ssisaa01@gmail.com'
@@ -173,6 +181,7 @@ def test_send_alias_email_contact(driver, runmode, ename, pname):
     5. simulate memory pressure using Android Monkey
     6. Resume app to check session Valid to proceed to next steps.should not get reset.
     """)
+@pytest.mark.reliability
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_session_retained_after_background(driver, runmode, ename, pname):
     # ename = 'ssisaa01@gmail.com'
@@ -212,6 +221,7 @@ def test_session_retained_after_background(driver, runmode, ename, pname):
     3. Enter valid details on email and password fields
     4. Validate alias name created name as 'Heroldx123@simplelogin.com'.
     """)
+@pytest.mark.emailalias
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_alias_email_name(driver, ename, pname):
     # ename = 'ssisaa01@gmail.com'
