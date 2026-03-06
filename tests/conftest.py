@@ -24,8 +24,8 @@ CURRENT_DEVICE = "emulator-5554"
 APP_PATH_APK = ph.join(ph.dirname(__file__), "../app/SimpleLogin.apk")
 ACTIVITY = "io.simplelogin.android.module.login.LoginActivity"
 
-BROWSERSTACK_USERNAME = os.getenv("BROWSERSTACK_USERNAME", "saifsa_CATGHI")
-BROWSERSTACK_ACCESS_KEY = os.getenv("BROWSERSTACK_ACCESS_KEY", "1r6vxyyXYSFNCY13Xf32")
+BROWSERSTACK_USERNAME = os.getenv("BROWSERSTACK_USERNAME", "browserstack_username")
+BROWSERSTACK_ACCESS_KEY = os.getenv("BROWSERSTACK_ACCESS_KEY", "browserstack_access_key")
 
 APP_ID = "bs://0b3f38c292900b027c035fa3594e91c3a960333b"
 
@@ -222,4 +222,5 @@ def _add_device_labels(request):
         allure.dynamic.label("device", device["deviceName"])
         allure.dynamic.label("platformVersion", device["platformVersion"])
         allure.dynamic.label("execution", "browserstack")
+
 
