@@ -25,7 +25,11 @@ class ContactAlias(ContactPage):
         self.contact_page.createsubmit()
         aliasEmail = self.alias_page.alias_email_text()
         log.info(f'Contact-Create: {aliasEmail} - {emailalias}')
-        assert emailalias, aliasEmail
+        try:
+            assert emailalias, aliasEmail
+        except AssertionError as e:
+            log.error(f"Assertion failed: {e}")
+            raise
 
     @allure.step('Check last Alias Email Send on')
     def contact_alias_email(self, subject, body, runmode):
@@ -43,13 +47,21 @@ class ContactAlias(ContactPage):
         CreationEmail = self.contact_page.get_created_email_contact()
         self.login_page.click_on_more_items()
         log.info(f'Contact-Creation-Alias-Email: {CreationEmail}')
-        assert CreationEmail.startswith('Created on'), CreationEmail
+        try:
+            assert CreationEmail.startswith('Created on'), CreationEmail
+        except AssertionError as e:
+            log.error(f"Assertion failed: {e}")
+            raise
 
     @allure.step('Check creation of Alias Email Send on')
     def contact_last_sent_email(self):
         lastEmail = self.contact_page.get_last_email_sent()
         self.login_page.click_on_more_items()
         log.info(f'Contact-Creation-Alias-Email: {lastEmail}')
-        assert lastEmail.startswith('Last sent on'), lastEmail
+        try:
+            assert lastEmail.startswith('Last sent on'), lastEmail
+        except AssertionError as e:
+            log.error(f"Assertion failed: {e}")
+            raise
 
 

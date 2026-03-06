@@ -21,14 +21,22 @@ class EmailAlias(AliasPage):
         self.alias_page.aliassubmit()
         aliasEmail = self.alias_page.alias_email_text()
         log.info(f'Alias-Email: {aliasEmail} - {alias}')
-        assert aliasEmail.lower().startswith(alias.lower()), aliasEmail
+        try:
+            assert aliasEmail.lower().startswith(alias.lower()), aliasEmail
+        except AssertionError as e:
+            log.error(f"Assertion failed: {e}")
+            raise
 
     @allure.step('Check Email Handled before and after Email Send')
     def check_alias_handle(self, email_handle: int):
         self.alias_page.alias_email_click()
         actual = int(self.alias_page.email_handle_text())
         log.info(f'Alias-Email-Handle: {actual} - {email_handle}')
-        assert actual == email_handle, f"Expected {email_handle}, got {actual}"
+        try:
+            assert actual == email_handle, f"Expected {email_handle}, got {actual}"
+        except AssertionError as e:
+            log.error(f"Assertion failed: {e}")
+            raise
 
     @allure.step('Check all the texts in alias handle page')
     def check_all_texts_available(self, expected: bool = True):
@@ -43,4 +51,9 @@ class EmailAlias(AliasPage):
         log.info(f'Check all buttons: {aliasName}')
         if aliasName == 'Heroldx123@simplelogin.com':
             aliasName = True
-        assert aliasName == expected
+        log.info(f'Expected value: {expected}')
+        try:
+            assert aliasName == expected, f"Alias validation failed. Actual: {aliasName}, Expected: {expected}"
+        except AssertionError as e:
+            log.error(f"Assertion failed: {e}")
+            raise

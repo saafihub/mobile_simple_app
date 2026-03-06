@@ -28,13 +28,21 @@ class MyLogin(BasePage):
         title_abt = self.login_page.get_bar_title()
         self.login_page.click_cancel_image()
         log.info(f'footer: {title_abt} - About SimpleLogin ')
-        assert 'About SimpleLogin', title_abt
+        try:
+            assert 'About SimpleLogin', title_abt
+        except AssertionError as e:
+            log.error(f"Assertion failed: {e}")
+            raise
 
     @allure.step('Check SimpleLogin app version')
     def check_sl_app_version(self):
         getVersion = self.login_page.get_sl_version()
         log.info(f'App Version: {getVersion} - SimpleLogin v1.19.2')
-        assert 'SimpleLogin v1.19.2', getVersion
+        try:
+            assert 'SimpleLogin v1.19.2', getVersion
+        except AssertionError as e:
+            log.error(f"Assertion failed: {e}")
+            raise
 
     @allure.step('Check forgot password details')
     def get_forgot_page(self, expected: bool = True):
@@ -43,22 +51,34 @@ class MyLogin(BasePage):
         get_text = ForgotPassPage(self).get_forgot_text()
         getheader = ForgotPassPage(self).get_forgot_header_text()
         ForgotPassPage(self).click_cancel_btn()
-        if inexpected in get_text:
-            assert expected, True
-        log.info(f'Forgot pass header: {getheader} - Forgot password')
-        assert 'Forgot password', getheader
+        try:
+            if inexpected in get_text:
+                assert expected, True
+            log.info(f'Forgot pass header: {getheader} - Forgot password')
+            assert 'Forgot password', getheader
+        except AssertionError as e:
+            log.error(f"Assertion failed: {e}")
+            raise
 
     @allure.step('Check SimpleLogin Image available')
     def check_sl_app_image(self):
         getVersion = self.login_page.sl_image_view()
-        assert True, getVersion
+        try:
+            assert True, getVersion
+        except AssertionError as e:
+            log.error(f"Assertion failed: {e}")
+            raise
 
     @allure.step('Check valid toast message displays for Invalid login')
     def check_valid_toast_message(self, ename: str, pname: str):
         self.app_login(ename, pname)
         get_toast = self.login_page.get_toast()
         log.info(f'Incorrect credential toast: {get_toast} - Incorrect email or password')
-        assert 'Incorrect email or password', get_toast
+        try:
+            assert 'Incorrect email or password', get_toast
+        except AssertionError as e:
+            log.error(f"Assertion failed: {e}")
+            raise
 
     @allure.step('Check valid error message displays signup page')
     def Check_signup_error_details(self, ename: str, pname: str = None, dsp: str = 'all', expected: bool = True):
@@ -79,7 +99,11 @@ class MyLogin(BasePage):
             get_toast = self.login_page.get_toast()
             log.info(f'Toast Message: {get_toast}')
             # actualIn = ['Incorrect email or password', f'cannot use {ename} as personal inbox']
-            assert f'cannot use {ename} as personal inbox', get_toast
+            try:
+                assert f'cannot use {ename} as personal inbox', get_toast
+            except AssertionError as e:
+                log.error(f"Assertion failed: {e}")
+                raise
 
     @allure.step('Check valid details on signup page')
     def Check_signup_valid_details(self, ename: str, pname: str):
@@ -89,7 +113,11 @@ class MyLogin(BasePage):
         # assert True, getVersion
         get_toast = self.login_page.get_toast()
         log.info(f'Incorrect credential toast: {get_toast} - Incorrect email or password')
-        assert 'Incorrect email or password', get_toast
+        try:
+            assert 'Incorrect email or password', get_toast
+        except AssertionError as e:
+            log.error(f"Assertion failed: {e}")
+            raise
 
     @allure.step('Check all the buttons and texts available in Landing page')
     def Check_buttons_texts_available(self, expected: bool = True):
@@ -107,7 +135,11 @@ class MyLogin(BasePage):
         ForgotPassPage(self).forgot_email()
         ForgotPassPage(self).forgot_reset_btn()
         getVersion = self.login_page.sl_image_view()
-        assert True, getVersion
+        try:
+            assert True, getVersion
+        except AssertionError as e:
+            log.error(f"Assertion failed: {e}")
+            raise
 
     @allure.step('Check the details of Sign in with API key page')
     def Check_signin_apikey(self):
@@ -115,9 +147,13 @@ class MyLogin(BasePage):
         getet = self.login_page.get_bar_title
         ForgotPassPage(self).click_cancel_btn()
         getVersion = self.login_page.sl_image_view()
-        assert True, getVersion
-        log.info(f'Message UI Text: {getet} - Enter API key')
-        assert 'Enter API key', getet
+        try:
+            assert True, getVersion
+            log.info(f'Message UI Text: {getet} - Enter API key')
+            assert 'Enter API key', getet
+        except AssertionError as e:
+            log.error(f"Assertion failed: {e}")
+            raise
 
     @allure.step('Check the details of Change API URL page')
     def Check_change_apiurl(self):
@@ -125,16 +161,24 @@ class MyLogin(BasePage):
         getet = self.login_page.get_bar_title
         self.login_page.reset_image_view()
         getVersion = self.login_page.sl_image_view()
-        assert True, getVersion
-        log.info(f'Message UI Text: {getet} - Change API URL')
-        assert 'Change API URL', getet
+        try:
+            assert True, getVersion
+            log.info(f'Message UI Text: {getet} - Change API URL')
+            assert 'Change API URL', getet
+        except AssertionError as e:
+            log.error(f"Assertion failed: {e}")
+            raise
 
     @allure.step('Navigate to Log in with proton page')
     def navigate_to_proton(self):
         ForgotPassPage(self).click_signin_apikey(getitem='LOG IN WITH PROTON')
         ForgotPassPage(self).proton_back_btn()
         getVersion = self.login_page.sl_image_view()
-        assert True, getVersion
+        try:
+            assert True, getVersion
+        except AssertionError as e:
+            log.error(f"Assertion failed: {e}")
+            raise
 
     @allure.step('Check SimpleLogin app version')
     def check_success_login_text(self, expected: bool = True):
@@ -142,7 +186,11 @@ class MyLogin(BasePage):
         log.info(f'Message UI Text: {succsslogin}')
         expectedIn = ["This is your first alias. It's used to receive SimpleLogin communications like new features "
                       "announcements, newsletters.", "NewsLetters"]
-        assert ((succsslogin in expectedIn) == expected)
+        try:
+            assert ((succsslogin in expectedIn) == expected)
+        except AssertionError as e:
+            log.error(f"Assertion failed: {e}")
+            raise
 
     @allure.step('Sign out from the simpleLogin app')
     def Signout_app(self):
