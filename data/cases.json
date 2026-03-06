@@ -1,0 +1,25 @@
+{
+  "signup_cases": {
+    "signup_both_fields_invalid_details": {
+      "ename": "techinfo.techinfo",
+      "pname": "biotech12345",
+      "dsp": "all"
+    },
+    "signup_with_empty_password_details": {
+      "ename": "biotech@techinfo.com",
+      "pname": "",
+      "dsp": "all"
+    },
+    "signup_with_valid_details_new_user": {
+      "ename": "informatics@techinfo.com",
+      "pname": "infotechglobal123",
+      "dsp": "No"
+    }
+  },
+  "login_cases": {
+    "user_credentials": {
+      "ename": "ssisaa01@gmail.com",
+      "pname": "abc12345678"
+    }
+  }
+}

@@ -1,0 +1,88 @@
+2026-03-06 12:13:07 | INFO     | mylogin.py | Message UI Text: NewsLetters
+2026-03-06 12:13:42 | INFO     | emailalias.py | Check all buttons: ciuwfe.dividable695@simplelogin.com - True
+2026-03-06 12:13:42 | INFO     | emailalias.py | Check all buttons: Created on 5 Mar 2026 at 19:44 (8 hours ago) - True
+2026-03-06 12:13:43 | INFO     | emailalias.py | Check all buttons:  ssisaa01@gmail.com  - True
+2026-03-06 12:13:43 | INFO     | emailalias.py | Check all buttons: dUq2t68UmmAq - True
+2026-03-06 12:13:43 | INFO     | emailalias.py | Check all buttons: NewsLetters - True
+2026-03-06 12:13:43 | INFO     | emailalias.py | Check all buttons: 1 - True
+2026-03-06 12:13:43 | INFO     | emailalias.py | Check all buttons: Email handled - True
+2026-03-06 12:13:43 | INFO     | emailalias.py | Check all buttons: 0 - True
+2026-03-06 12:13:43 | INFO     | emailalias.py | Check all buttons: Email forwarded - True
+2026-03-06 12:13:43 | INFO     | emailalias.py | Check all buttons: 1 - True
+2026-03-06 12:13:44 | INFO     | emailalias.py | Check all buttons: Email replied - True
+2026-03-06 12:13:44 | INFO     | emailalias.py | Check all buttons: 0 - True
+2026-03-06 12:13:44 | INFO     | emailalias.py | Check all buttons: Email blocked - True
+2026-03-06 12:19:02 | INFO     | mylogin.py | Message UI Text: NewsLetters
+2026-03-06 12:19:37 | INFO     | emailalias.py | Check all buttons: ciuwfe.dividable695@simplelogin.com - True
+2026-03-06 12:19:37 | INFO     | emailalias.py | Check all buttons: Created on 5 Mar 2026 at 19:44 (8 hours ago) - True
+2026-03-06 12:19:38 | INFO     | emailalias.py | Check all buttons:  ssisaa01@gmail.com  - True
+2026-03-06 12:19:38 | INFO     | emailalias.py | Check all buttons: dUq2t68UmmAq - True
+2026-03-06 12:19:38 | INFO     | emailalias.py | Check all buttons: NewsLetters - True
+2026-03-06 12:19:39 | INFO     | emailalias.py | Check all buttons: 1 - True
+2026-03-06 12:19:39 | INFO     | emailalias.py | Check all buttons: Email handled - True
+2026-03-06 12:19:39 | INFO     | emailalias.py | Check all buttons: 0 - True
+2026-03-06 12:19:39 | INFO     | emailalias.py | Check all buttons: Email forwarded - True
+2026-03-06 12:19:39 | INFO     | emailalias.py | Check all buttons: 1 - True
+2026-03-06 12:19:39 | INFO     | emailalias.py | Check all buttons: Email replied - True
+2026-03-06 12:19:39 | INFO     | emailalias.py | Check all buttons: 0 - True
+2026-03-06 12:19:40 | INFO     | emailalias.py | Check all buttons: Email blocked - True
+2026-03-06 12:22:56 | INFO     | mylogin.py | App Version: SimpleLogin v1.19.2 - SimpleLogin v1.19.2
+2026-03-06 12:23:17 | INFO     | mylogin.py | Check all buttons: SIGN IN - True
+2026-03-06 12:23:17 | INFO     | mylogin.py | Check all buttons: LOG IN WITH PROTON - True
+2026-03-06 12:23:17 | INFO     | mylogin.py | Check all buttons: Forgot password - True
+2026-03-06 12:23:18 | INFO     | mylogin.py | Check all buttons: Sign up - True
+2026-03-06 12:23:18 | INFO     | mylogin.py | Check all buttons: Sign in with API Key - True
+2026-03-06 12:23:19 | INFO     | mylogin.py | Check all buttons: Change API URL - True
+2026-03-06 12:23:42 | INFO     | mylogin.py | Message signup error: Invalid email - True
+2026-03-06 12:24:04 | INFO     | mylogin.py | Message signup error: Minimum 8 characters is required - True
+2026-03-06 12:24:29 | INFO     | mylogin.py | Toast Message: cannot use informatics@techinfo.com as personal inbox
+2026-03-06 12:24:53 | INFO     | mylogin.py | Message UI Text: NewsLetters
+2026-03-06 12:25:24 | INFO     | emailalias.py | Alias-Email: jivtpa.shut385@simplelogin.com - jIvTpA
+2026-03-06 12:25:48 | INFO     | emailalias.py | Alias-Email-Handle: 0 - 0
+2026-03-06 12:26:43 | ERROR    | contact_page.py | Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/nix/store/7gcl75xhklpjnw78s382pkyxgviyrsk4-appium-1.22.0/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+2026-03-06 12:26:48 | INFO     | contactalias.py | Contact-Create: ssisaa7@gmail.com - ssisaa7@gmail.com
+2026-03-06 12:27:15 | INFO     | contactalias.py | Contact-Creation-Alias-Email: Created on 6 Mar 2026 at 04:26 (0 minutes ago)
+2026-03-06 12:27:45 | INFO     | mylogin.py | Message UI Text: NewsLetters
+2026-03-06 12:28:20 | INFO     | emailalias.py | Check all buttons: jivtpa.shut385@simplelogin.com - True
+2026-03-06 12:28:20 | INFO     | emailalias.py | Check all buttons: Created on 6 Mar 2026 at 04:25 (2 minutes ago) - True
+2026-03-06 12:28:20 | INFO     | emailalias.py | Check all buttons:  ssisaa01@gmail.com  - True
+2026-03-06 12:28:20 | INFO     | emailalias.py | Check all buttons: 3ViqBiDlqJks - True
+2026-03-06 12:28:20 | INFO     | emailalias.py | Check all buttons: NewsLetters - True
+2026-03-06 12:28:20 | INFO     | emailalias.py | Check all buttons: 0 - True
+2026-03-06 12:28:21 | INFO     | emailalias.py | Check all buttons: Email handled - True
+2026-03-06 12:28:21 | INFO     | emailalias.py | Check all buttons: 0 - True
+2026-03-06 12:28:21 | INFO     | emailalias.py | Check all buttons: Email forwarded - True
+2026-03-06 12:28:21 | INFO     | emailalias.py | Check all buttons: 0 - True
+2026-03-06 12:28:21 | INFO     | emailalias.py | Check all buttons: Email replied - True
+2026-03-06 12:28:21 | INFO     | emailalias.py | Check all buttons: 0 - True
+2026-03-06 12:28:21 | INFO     | emailalias.py | Check all buttons: Email blocked - True
+2026-03-06 12:28:46 | INFO     | emailalias.py | Check all buttons: jivtpa.shut385@simplelogin.com
+2026-03-06 12:51:01 | INFO     | mylogin.py | App Version: SimpleLogin v1.19.2 - SimpleLogin v1.19.2
+2026-03-06 12:51:13 | INFO     | mylogin.py | Check all buttons: SIGN IN - True
+2026-03-06 12:51:13 | INFO     | mylogin.py | Check all buttons: LOG IN WITH PROTON - True
+2026-03-06 12:51:13 | INFO     | mylogin.py | Check all buttons: Forgot password - True
+2026-03-06 12:51:13 | INFO     | mylogin.py | Check all buttons: Sign up - True
+2026-03-06 12:51:13 | INFO     | mylogin.py | Check all buttons: Sign in with API Key - True
+2026-03-06 12:51:13 | INFO     | mylogin.py | Check all buttons: Change API URL - True
+2026-03-06 12:51:25 | INFO     | mylogin.py | Message signup error: Invalid email - True
+2026-03-06 12:51:37 | INFO     | mylogin.py | Message signup error: Minimum 8 characters is required - True
+2026-03-06 12:51:51 | INFO     | mylogin.py | Toast Message: cannot use informatics@techinfo.com as personal inbox
+2026-03-06 12:52:03 | INFO     | mylogin.py | Message UI Text: NewsLetters
+2026-03-06 12:52:22 | INFO     | emailalias.py | Alias-Email: wrqclo.snowplow309@simplelogin.com - wrqclO
+2026-03-06 12:52:35 | INFO     | emailalias.py | Alias-Email-Handle: 0 - 0
+2026-03-06 12:53:19 | ERROR    | contact_page.py | Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (C:\Users\User\AppData\Roaming\npm\node_modules\appium\node_modules\appium-android-driver\lib\commands\find.js:75:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\User\AppData\Roaming\npm\node_modules\appium\node_modules\appium-base-driver\lib\basedriver\commands\find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (C:\Users\User\AppData\Roaming\npm\node_modules\appium\node_modules\appium-base-driver\lib\basedriver\commands\find.js:53:10)
+2026-03-06 12:53:22 | INFO     | contactalias.py | Contact-Create: ssisaa7@gmail.com - ssisaa7@gmail.com
+2026-03-06 12:53:42 | INFO     | contactalias.py | Contact-Creation-Alias-Email: Created on 6 Mar 2026 at 12:53 (0 minutes ago)
+2026-03-06 12:53:59 | INFO     | mylogin.py | Message UI Text: NewsLetters
+2026-03-06 12:55:15 | INFO     | emailalias.py | Check all buttons: wrqclo.snowplow309@simplelogin.com
