@@ -108,17 +108,6 @@ class BasePage:
 
     @allure.step('Click the items Safely with out flaky')
     def safe_element_visibility(self, locator, timeout=20, poll_frequency=0.5, max_retries=3):
-        """
-        Robust method to wait for an element to be clickable and click it safely.
-
-        Args:
-            driver: Appium WebDriver instance
-            locator_type: AppiumBy strategy, e.g., AppiumBy.ID, AppiumBy.XPATH
-            locator: the locator string
-            timeout: max seconds to wait for element
-            poll_frequency: interval to poll for element
-            max_retries: retries if click fails due to stale element or temporary issues
-        """
         attempt = 0
         while attempt < max_retries:
             try:
@@ -137,3 +126,4 @@ class BasePage:
 
     def get_app_back(self):
         self.wait.until(lambda d: d.query_app_state("io.simplelogin.android") == 5)
+
