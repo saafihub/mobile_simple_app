@@ -89,7 +89,7 @@ as the application grows.
     1. Appium Server (https://github.com/appium/appium-desktop/releases/tag/v1.22.3-4) OR Install Node.js and Install Appium(<v2.0)
     2. Android Studio/SDK (https://developer.android.com/studio/install)
     3. Install android device emulator via device manager or plug real device or bluestacks
-    4. Run android device (if you are working with emulator check plugged devices via cmd `adb devices` and copy current device name)
+    4. Run android device (if you are working with emulators,real device or bluestacks. Check devices via cmd `adb devices` and copy current device name)
     5. Start run appium server or (CMD: 'appium') if installed via Node.js.
 
 **IOS (need macOS)**
@@ -130,6 +130,7 @@ as the application grows.
        (a). Collect allure report using command below to get this need to install allure commandline utility to view results.
             1. allure generate reports/allure-results -o reports/allure-report --clean
             2. allure open reports/allure-report
+
 
 
 
