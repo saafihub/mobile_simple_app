@@ -30,6 +30,7 @@ class ContactAlias(ContactPage):
     @allure.step('Check last Alias Email Send on')
     def contact_alias_email(self, subject, body, runmode):
         self.alias_page.alias_email_send()
+        log.info('RUNMODE-2 : ' + str(runmode))
         if runmode == "local":
             self.alias_page.alias_email_click()
             self.contact_page.click_on_options()
