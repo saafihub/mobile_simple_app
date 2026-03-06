@@ -64,12 +64,12 @@ as the application grows.
     
 ![Testcases](img.png)
 
-    3. Create pytest framework based on design pattern(POM - Page Object Model):
+    3. Stacks to create pytest mobile automation framework based on design pattern(POM - Page Object Model):
         - Appium
         - Python
         - pytest
         - Allure
-    4.  Instructions given below for prerequisites and setup, description of project, how to run tests
+    4.  Instructions given below for prerequisites, setup, and to run tests.
 
 **Prerequisites and Setup istructions:**
 
@@ -129,6 +129,7 @@ as the application grows.
        (a). Collect allure report using command below to get this need to install allure commandline utility to view results.
             1. allure generate reports/allure-results -o reports/allure-report --clean
             2. allure open reports/allure-report
+
 
 
 
