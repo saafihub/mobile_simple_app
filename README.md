@@ -60,6 +60,7 @@ as the application grows.
 
     1.  Download the SimpleLogin app(Android(*.apk) and Ios(*.ipa))
     2.  Create test plan for SimpleLogin app (12 test cases)
+         ![Testcases](img.png)
     3. Create pytest framework based on design pattern(POM - Page Object Model):
         - Appium
         - Python
@@ -116,3 +117,4 @@ as the application grows.
        (a). Collect allure report using command below to get this need to install allure commandline utility and enjoy results!
             1. allure generate reports/allure-results -o reports/allure-report --clean
             2. allure open reports/allure-report
+
