@@ -126,9 +126,10 @@ as the application grows.
 
     1. pytest-htmlreporter : pytest test_*.py --html-report=./report/pytest_html_report.html
     2. Allure Report : pytest test_*.py --alluredir=reports/allure-results
-       (a). Collect allure report using command below to get this need to install allure commandline utility and enjoy results!
+       (a). Collect allure report using command below to get this need to install allure commandline utility to view results.
             1. allure generate reports/allure-results -o reports/allure-report --clean
             2. allure open reports/allure-report
+
 
 
 
