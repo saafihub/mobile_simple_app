@@ -84,7 +84,7 @@ as the application grows.
         4. Go back to root folder 'mobile_simple_app'
         5. To install all necessary packages, need to run this requirement file, Type: 'pip install -r requirements.txt'
 
-**Andriod**
+**Andriod(emulators, real device, bluestacks)**
 
     1. Appium Server (https://github.com/appium/appium-desktop/releases/tag/v1.22.3-4) OR Install Node.js and Install Appium(<v2.0)
     2. Android Studio/SDK (https://developer.android.com/studio/install)
@@ -100,15 +100,16 @@ as the application grows.
     4. Use Xcode to provisioning profile/Signing for WDAgentRunner target
     5. Run appium server
 
-**To run tests locally:**
+**To run tests locally(emulators, real device, bluestacks):**
 
     1. Check current device name in config.ini. If device name is not match with `CURRENT_DEVICE` change variable value to device name and details
     2. Run tests for android (example: `pytest test_android.py --runmode=local --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html`)
     3. Run tests for ios (example: `pytest test_ios.py --runmode=local --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html')
 
-**To run tests in device farms(Browserstack, saucelabs, Aws devicefarms etc):**
+**To run tests in Browserstack:**
 
     1. Check browserstack set in config.ini correcly. If device name is not match with `BROWSERSTACK_DEVICES` change variable value to correct device name, credentials  and app details.
+        - Can easily extend to other devices farms by adding driver and runmodes such as like saucelabs and other device farms etc. 
     2. Run tests for android (example: `pytest tests/test_android.py --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html`)
     3. Run tests for ios (example: `pytest tests/test_ios.py --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html')
 
@@ -129,6 +130,7 @@ as the application grows.
        (a). Collect allure report using command below to get this need to install allure commandline utility to view results.
             1. allure generate reports/allure-results -o reports/allure-report --clean
             2. allure open reports/allure-report
+
 
 
 
