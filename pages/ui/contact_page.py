@@ -32,7 +32,7 @@ class ContactPage(BasePage):
             if self.get_dialog_header_title() == 'Create new contact':
                 self.find_element(Aliascreate.manageView).click()
         except Exception as e:
-            log.error(str(e))
+            log.info('No dialog as "Create new contact" displayed')
             pass
 
     @allure.step('Enter the Email Manually to create an email contact for alias')
