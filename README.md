@@ -27,17 +27,15 @@ as the application grows.
     3. Testing Framework(Hybrid): Combines data-driven and keyword-driven.
     4. Continuous Integration: Jenkins/GitHub Actions (Can Integrate)
 
-**Why Appium with Python bindings?:**
+**Why Appium with Python bindings?**
 
     1. Appium enables automation testing for mobile apps (Android and iOS) using a single framework.
-    2. It supports multiple programming languages (Python, Java, JavaScript, etc.) through the WebDriver protocol, 
-       making it flexible for different teams.
-    3. It allows testing of native, hybrid, and mobile web applications without modifying the app source code.
-    4. It uses the WebDriver protocol, and the Selenium Python bindings implement that protocol, allowing 
+    2. It supports multiple programming languages through the WebDriver protocol, making it flexible.
+    3. It uses the WebDriver protocol, and the Selenium Python bindings implement that protocol, allowing 
        Python code to control mobile apps the same way Selenium controls web browsers.
-    5. Using Python + Selenium bindings provides stable WebDriver APIs, better compatibility, and reusable automation 
+    4. Using Python + Selenium bindings provides stable WebDriver APIs, better compatibility, and reusable automation 
        patterns (e.g., Page Object Model, waits, locators).
-    6. It enables cross-platform mobile automation (Android/iOS) with familiar Selenium-style commands while leveraging 
+    5. It enables cross-platform mobile automation (Android/iOS) with familiar Selenium-style commands while leveraging 
        Python’s simplicity and large testing ecosystem.
 
 **Framework Structure:**
@@ -135,6 +133,7 @@ as the application grows.
        (a). Collect allure report using command below to get this need to install allure commandline utility to view results.
             1. allure generate reports/allure-results -o reports/allure-report --clean
             2. allure open reports/allure-report
+
 
 
 
