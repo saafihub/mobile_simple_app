@@ -59,7 +59,7 @@ as the application grows.
 
 **Task description:**
 
-    1.  Download the SimpleLogin app(Android(*.apk) and Ios(*.ipa))
+    1.  Get the Mobile application(SimpleLogin) for Android(*.apk) and iOS(*.ipa))
     2.  Create tests(features and stories) for SimpleLogin app 
     
 ![Testcases](img.png)
@@ -100,19 +100,19 @@ as the application grows.
     4. Use Xcode to provisioning profile/Signing for WDAgentRunner target
     5. Run appium server
 
-**How to run tests in project:**
+**To run tests locally:**
 
     1. Check current device name in config.ini. If device name is not match with `CURRENT_DEVICE` change variable value to device name and details
     2. Run tests for android (example: `pytest test_android.py --runmode=local --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html`)
     3. Run tests for ios (example: `pytest test_ios.py --runmode=local --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html')
 
-**To Run in device farms(Browserstack, saucelabs, Aws devicefarms etc):**
+**To run tests in device farms(Browserstack, saucelabs, Aws devicefarms etc):**
 
     1. Check browserstack set in config.ini correcly. If device name is not match with `BROWSERSTACK_DEVICES` change variable value to correct device name, credentials  and app details.
     2. Run tests for android (example: `pytest tests/test_android.py --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html`)
     3. Run tests for ios (example: `pytest tests/test_ios.py --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html')
 
-**To Run in parallel with multiple devices either with Browserstack or locally:**
+**To run tests in parallel with multiple devices either with Browserstack or locally:**
 
     1. Local : pytest tests/test_android.py -n 2 --runmode=local --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html.
     2. Browserstack : pytest tests/test_android.py -n 2 --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html
