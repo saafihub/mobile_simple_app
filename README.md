@@ -8,16 +8,30 @@ Designed with **scalability and extensibility** in mind, the framework allows ad
 
 **Automated Testing Framework Design**
 
-    1. Hybrid Framework: Combines the benefits of data-driven and keyword-driven approaches to achieve flexibility and maintainability.
+    1. **Hybrid Framework:**
+   The framework follows a **hybrid approach**, combining the strengths of **data-driven and keyword-driven testing** to provide greater **flexibility, reusability, and maintainability**.
 
-    2. Modular and Layered Architecture:Each layer of the framework is decoupled, meaning that changes in one layer (e.g., page object or locators) do not directly affect the other layers.
-        Layer 1: Test Data Layer: Stores the test data (cases.json or excel etc)
-        Layer 2: Page Object Layer: Page classes that encapsulate ui elements and methods to interact with those elements.
-        Layer 3: Test Logic Layer: Includes the test actions that drive the interactions, calling methods from the page classes.
-        Layer 4: Test Runner Layer: The entry point to initiate test execution, manage setup and teardown and other configurations.
-        Layer 5: Test Report Layer: Generate detailed test reports after execution.
-    
-    3. Test Execution Flow: The test execution process will be managed through a test runner like pytest, nose, junit, testng etc.
+2. **Modular and Layered Architecture:**
+   The framework is designed with a **decoupled, layered architecture**, ensuring that modifications in one layer (such as page objects or locators) do not impact other layers directly.
+
+   * **Layer 1 – Test Data Layer:**
+     Maintains test data sources such as **JSON files, Excel sheets, or other external data repositories**.
+
+   * **Layer 2 – Page Object Layer:**
+     Contains **page classes** that encapsulate **UI elements (locators)** and the **methods required to interact with those elements**.
+
+   * **Layer 3 – Test Logic Layer:**
+     Implements **test scenarios and actions**, invoking methods from the **page object classes** to perform application interactions.
+
+   * **Layer 4 – Test Runner Layer:**
+     Acts as the **entry point for test execution**, responsible for **initialization, configuration, setup, teardown, and execution management**.
+
+   * **Layer 5 – Test Report Layer:**
+     Responsible for generating **comprehensive test execution reports** that provide insights into test results, failures, and overall execution metrics.
+
+3. **Test Execution Flow:**
+   Test execution is orchestrated using a **test runner framework such as Pytest, Nose, JUnit, or TestNG**, which manages **test discovery, execution, reporting, and lifecycle hooks**.
+
 
 **Test Architecture and Tools:**
 
@@ -132,6 +146,7 @@ Designed with **scalability and extensibility** in mind, the framework allows ad
        (a). Collect allure report using command below to get this need to install allure commandline utility to view results.
             1. allure generate reports/allure-results -o reports/allure-report --clean
             2. allure open reports/allure-report
+
 
 
 
