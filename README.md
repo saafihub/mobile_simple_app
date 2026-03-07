@@ -1,13 +1,14 @@
 # mobile_app_testing_with_appium
+```
 A **Pytest-based automation framework** built using the **Page Object Model (POM)** with **Appium, Python, and Allure reporting** has been developed to test the **SimpleLogin mobile application for Mobile platforms(Android/iOS)**.
 
 The framework is structured around **POM and Pytest fixtures**, enabling clear separation of responsibilities and better test organization. It supports multiple categories of testing, including **End-to-End (E2E), Functional, Compatibility, and Reliability testing** within a unified framework.
 
 Designed with **scalability and extensibility** in mind, the framework allows additional test types to be integrated easily. By separating components such as **test logic, page objects, and test data**, it improves **maintainability, reusability, and overall test management**, making it easier to scale as the application evolves.
-
+```
 
 ### Automated Testing Framework Design
-
+```
 1. **Hybrid Framework:**
    The framework follows a **hybrid approach**, combining the strengths of **data-driven and keyword-driven testing** to provide greater **flexibility, reusability, and maintainability**.
 
@@ -31,18 +32,18 @@ Designed with **scalability and extensibility** in mind, the framework allows ad
 
 3. **Test Execution Flow:**
    Test execution is orchestrated using a **test runner framework such as Pytest, Nose, JUnit, or TestNG**, which manages **test discovery, execution, reporting, and lifecycle hooks**.
-
+```
 
 ### Test Architecture and Tools
-
+```
 1. **Tool & Language:** Appium with Python using Selenium bindings for mobile automation.  
 2. **Design Pattern:** Page Object Model (POM) to ensure better code organization, reusability, and maintainability.  
 3. **Testing Framework (Hybrid):** Implements a hybrid approach by combining **data-driven** and **keyword-driven** testing methodologies.  
 4. **Continuous Integration:** Can be integrated with CI/CD tools such as **Jenkins** or **GitHub Actions** for automated test execution.
-
+```
 
 ### Why Use Appium with Python Bindings?
-
+```
 1. **Cross-Platform Mobile Automation:**
    Appium allows automation testing for **both Android and iOS applications** using a single unified framework.
 
@@ -57,7 +58,7 @@ Designed with **scalability and extensibility** in mind, the framework allows ad
 
 5. **Efficient and Scalable Automation:**
    This stack enables **cross-platform mobile automation** using familiar **Selenium-style commands**, while benefiting from **Python’s simplicity, readability, and extensive testing ecosystem**.
-
+```
 ### Framework Structure
 
 ```
@@ -326,5 +327,6 @@ Open the report:
 ```bash
 allure open reports/allure-report
 ```
+
 
 
