@@ -78,85 +78,254 @@ Designed with **scalability and extensibility** in mind, the framework allows ad
 └── requirements.txt # Project dependencies for installation
 ```
 
+## Task Description
 
-**Task description:**
+1. Download the **SimpleLogin mobile application** for both platforms:
 
-    1.  Get the Mobile application(SimpleLogin) for Android(*.apk) and iOS(*.ipa))
-    2.  Create tests(features and stories) for SimpleLogin app 
-    
+   * **Android** (`.apk`)
+   * **iOS** (`.ipa`)
+
+2. Create automated **test scenarios (features and stories)** for the SimpleLogin application.
+
 ![Testcases](img.png)
 
-    3. Stacks to create pytest mobile automation framework based on design pattern(POM - Page Object Model):
-        - Appium
-        - Python
-        - pytest
-        - Allure
-    4.  Instructions given below for prerequisites, setup, and to run tests.
+3. Build a **Pytest-based mobile automation framework** following the **Page Object Model (POM) design pattern** using the following technology stack:
 
-**Prerequisites and Setup istructions:**
+* **Appium**
+* **Python**
+* **Pytest**
+* **Allure Reporting**
 
-    1. Install Python 3.12 (https://www.python.org/downloads/)
-    2. Clone the repository to your local machine:  'mobile_simple_app'.
-        - git clone https://github.com/saafihub/mobile_simple_app.git
-        - cd mobile_simple_app
-    3. Build the Project(Steps)
-        1. pip install virtualenv
-        2. To isolate virtual environment, Goto 'mobile_simple_app'> Type Command: 'python -m venv mobile_tests'
-        3. To get isolated environment, Go to folder 'mobile_tests>Scripts' and Type: 'activate'
-        4. Go back to root folder 'mobile_simple_app'
-        5. To install all necessary packages, need to run this requirement file, Type: 'pip install -r requirements.txt'
+4. Detailed instructions for **prerequisites, environment setup, and test execution** are provided below.
 
-**Andriod(emulators, real device, bluestacks)**
+---
 
-    1. Appium Server (https://github.com/appium/appium-desktop/releases/tag/v1.22.3-4) OR Install Node.js and Install Appium(<v2.0)
-    2. Android Studio/SDK (https://developer.android.com/studio/install)
-    3. Install android device emulator via device manager or plug real device or bluestacks
-    4. Run android device (if you are working with emulator,real device or bluestacks. Check devices via cmd `adb devices` and copy current device name)
-    5. Start run appium server or (CMD: 'appium') if installed via Node.js.
+## Prerequisites and Setup Instructions
 
-**IOS (need macOS)**
+1. Install **Python 3.12**
+   [https://www.python.org/downloads/](https://www.python.org/downloads/)
 
-    1. Appium Server (https://github.com/appium/appium-desktop/releases/tag/v1.22.3-4)
-    2. Install Xcode from App store to select simulator or plug real device 
-    3. Install Carthage and set up WebDriverAgent
-    4. Use Xcode to provisioning profile/Signing for WDAgentRunner target
-    5. Run appium server
+2. Clone the repository to your local machine:
 
-**To run tests locally(emulators, real device, bluestacks):**
+```bash
+git clone https://github.com/saafihub/mobile_simple_app.git
+cd mobile_simple_app
+```
 
-    1. Check current device name in config.ini. If device name is not match with `CURRENT_DEVICE` change variable value to device name and details
-    2. Run tests for android (example: `pytest test_android.py --runmode=local --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html`)
-    3. Run tests for ios (example: `pytest test_ios.py --runmode=local --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html')
+3. **Project Setup Steps**
 
-**To run tests in Browserstack:**
+* Install virtual environment tool:
 
-    1. Check browserstack set in config.ini correcly. If device name is not match with `BROWSERSTACK_DEVICES` change variable value to correct device name, credentials  and app details.
-        - Can easily extend to other devices farms by adding driver and runmodes such as like saucelabs and other device farms etc. 
-    2. Run tests for android (example: `pytest tests/test_android.py --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html`)
-    3. Run tests for ios (example: `pytest tests/test_ios.py --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html')
+```bash
+pip install virtualenv
+```
 
-**To run tests in parallel with multiple devices either with Browserstack or locally:**
+* Create a virtual environment:
 
-    1. Local : pytest tests/test_android.py -n 2 --runmode=local --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html.
-    2. Browserstack : pytest tests/test_android.py -n 2 --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html
+```bash
+python -m venv mobile_tests
+```
 
-**To Re-Run failed tests to retries  either with Browserstack or locally:**
+* Activate the virtual environment:
 
-    1. Local : pytest tests/test_android.py --reruns 2 --reruns-delay 2  --runmode=local --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html.
-    2. Browserstack : pytest tests/test_android.py --reruns 2 --reruns-delay 2  --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html
+```bash
+mobile_tests\Scripts\activate
+```
 
-**To run tests with tags(smoke, regression etc) :**
+* Return to the project root folder:
 
-    1. Local : pytest tests/test_android.py -m smoke or regression --runmode=local --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html.
-    2. Browserstack : pytest tests/test_android.py -m smoke or regression --runmode=browserstack --alluredir=reports/allure-results or --html-report=./report/pytest_html_report.html
+```bash
+cd mobile_simple_app
+```
 
-**Report Formats**
+* Install the required dependencies:
 
-    1. pytest-htmlreporter : pytest test_*.py --html-report=./report/pytest_html_report.html
-    2. Allure Report : pytest test_*.py --alluredir=reports/allure-results
-       (a). Collect allure report using command below to get this need to install allure commandline utility to view results.
-            1. allure generate reports/allure-results -o reports/allure-report --clean
-            2. allure open reports/allure-report
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Android Setup (Emulator / Real Device / Bluestacks)
+
+1. Install **Appium Server**
+   [https://github.com/appium/appium-desktop/releases/tag/v1.22.3-4](https://github.com/appium/appium-desktop/releases/tag/v1.22.3-4)
+   *(Alternatively install Node.js and Appium v2 via npm)*
+
+2. Install **Android Studio and Android SDK**
+   [https://developer.android.com/studio/install](https://developer.android.com/studio/install)
+
+3. Create an **Android emulator** using Device Manager, or connect a **real device**, or use **Bluestacks**.
+
+4. Verify connected devices:
+
+```bash
+adb devices
+```
+
+Copy the **device name** for configuration.
+
+5. Start the **Appium server**
+
+```bash
+appium
+```
+
+---
+
+## iOS Setup (Requires macOS)
+
+1. Install **Appium Server**
+   [https://github.com/appium/appium-desktop/releases/tag/v1.22.3-4](https://github.com/appium/appium-desktop/releases/tag/v1.22.3-4)
+
+2. Install **Xcode** from the App Store to use the **iOS simulator** or connect a **real device**.
+
+3. Install **Carthage** and configure **WebDriverAgent**.
+
+4. Configure **Provisioning Profile / Signing** for the `WebDriverAgentRunner` target in Xcode.
+
+5. Start the **Appium server**.
+
+---
+
+## Running Tests Locally
+
+*(Emulator / Real Device / Bluestacks)*
+
+1. Verify the **device configuration** in `config.ini`.
+
+If the device name does not match `CURRENT_DEVICE`, update the value accordingly.
+
+2. Run **Android tests**
+
+```bash
+pytest tests/test_android.py --runmode=local --alluredir=reports/allure-results
+```
+
+or
+
+```bash
+pytest tests/test_android.py --runmode=local --html-report=./report/pytest_html_report.html
+```
+
+3. Run **iOS tests**
+
+```bash
+pytest tests/test_ios.py --runmode=local --alluredir=reports/allure-results
+```
+
+or
+
+```bash
+pytest tests/test_ios.py --runmode=local --html-report=./report/pytest_html_report.html
+```
+
+---
+
+## Running Tests on BrowserStack
+
+1. Verify **BrowserStack configuration** in `config.ini`.
+
+Ensure `BROWSERSTACK_DEVICES`, credentials, and app details are correctly configured.
+
+*(The framework can also be extended to other device farms such as Sauce Labs.)*
+
+2. Run **Android tests**
+
+```bash
+pytest tests/test_android.py --runmode=browserstack --alluredir=reports/allure-results
+```
+
+3. Run **iOS tests**
+
+```bash
+pytest tests/test_ios.py --runmode=browserstack --alluredir=reports/allure-results
+```
+
+---
+
+## Running Tests in Parallel
+
+### Local Execution
+
+```bash
+pytest tests/test_android.py -n 2 --runmode=local --alluredir=reports/allure-results
+```
+
+### BrowserStack Execution
+
+```bash
+pytest tests/test_android.py -n 2 --runmode=browserstack --alluredir=reports/allure-results
+```
+
+---
+
+## Re-running Failed Tests
+
+### Local Execution
+
+```bash
+pytest tests/test_android.py --reruns 2 --reruns-delay 2 --runmode=local --alluredir=reports/allure-results
+```
+
+### BrowserStack Execution
+
+```bash
+pytest tests/test_android.py --reruns 2 --reruns-delay 2 --runmode=browserstack --alluredir=reports/allure-results
+```
+
+---
+
+## Running Tests with Tags (Smoke / Regression)
+
+### Local Execution
+
+```bash
+pytest tests/test_android.py -m smoke --runmode=local
+```
+
+or
+
+```bash
+pytest tests/test_android.py -m regression --runmode=local
+```
+
+### BrowserStack Execution
+
+```bash
+pytest tests/test_android.py -m smoke --runmode=browserstack
+```
+
+---
+
+## Report Formats
+
+### Pytest HTML Report
+
+```bash
+pytest test_*.py --html-report=./report/pytest_html_report.html
+```
+
+### Allure Report
+
+Run tests with:
+
+```bash
+pytest test_*.py --alluredir=reports/allure-results
+```
+
+Generate the report:
+
+```bash
+allure generate reports/allure-results -o reports/allure-report --clean
+```
+
+Open the report:
+
+```bash
+allure open reports/allure-report
+```
+
 
 
 
