@@ -8,7 +8,7 @@ Designed with **scalability and extensibility** in mind, the framework allows ad
 
 **Automated Testing Framework Design**
 
-    1. **Hybrid Framework:**
+1. **Hybrid Framework:**
    The framework follows a **hybrid approach**, combining the strengths of **data-driven and keyword-driven testing** to provide greater **flexibility, reusability, and maintainability**.
 
 2. **Modular and Layered Architecture:**
@@ -146,6 +146,7 @@ Designed with **scalability and extensibility** in mind, the framework allows ad
        (a). Collect allure report using command below to get this need to install allure commandline utility to view results.
             1. allure generate reports/allure-results -o reports/allure-report --clean
             2. allure open reports/allure-report
+
 
 
 
