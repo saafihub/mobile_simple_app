@@ -1,4 +1,4 @@
-# mobile_app_testing_with_appium
+# Mobile_App_Testing_With_Appium(Android/iOS)
 
 A **Pytest-based automation framework** built using the **Page Object Model (POM)** with **Appium, Python, and Allure reporting** has been developed to test the **SimpleLogin mobile application for Mobile platforms(Android/iOS)**.
 
@@ -328,6 +328,7 @@ Open the report:
 ```bash
 allure open reports/allure-report
 ```
+
 
 
 
