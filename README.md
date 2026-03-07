@@ -1,11 +1,10 @@
 # mobile_app_testing_with_appium
-Pytest framework based on Page Object Model using appium+python+allure for app created to work with 
-SimpleLogin app for android and Ios. This  automation framework is structured using Page Object Model (POM) 
-and Fixtures. It is designed to accommodate multiple types of tests like E2E, Functional, Compatibility, 
-Reliability tests within framework. The framework is built with scalability and extensibility in mind to 
-add more test types with enhanced maintainability, reusability and also by separating concerns 
-(e.g., test logic, page objects, and test data), the framework makes it easier to manage and scale 
-as the application grows.
+A **Pytest-based automation framework** built using the **Page Object Model (POM)** with **Appium, Python, and Allure reporting** has been developed to test the **SimpleLogin mobile application for both Android and iOS platforms**.
+
+The framework is structured around **POM and Pytest fixtures**, enabling clear separation of responsibilities and better test organization. It supports multiple categories of testing, including **End-to-End (E2E), Functional, Compatibility, and Reliability testing** within a unified framework.
+
+Designed with **scalability and extensibility** in mind, the framework allows additional test types to be integrated easily. By separating components such as **test logic, page objects, and test data**, it improves **maintainability, reusability, and overall test management**, making it easier to scale as the application evolves.
+
 
 **Automated Testing Framework Design**
 
@@ -133,6 +132,7 @@ as the application grows.
        (a). Collect allure report using command below to get this need to install allure commandline utility to view results.
             1. allure generate reports/allure-results -o reports/allure-report --clean
             2. allure open reports/allure-report
+
 
 
 
