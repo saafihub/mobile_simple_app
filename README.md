@@ -151,7 +151,8 @@ pip install -r requirements.txt
 ## Android Setup (Emulator / Real Device / Bluestacks)
 
 1. Install **Appium Server**
-   [install Node.js and Appium v1.22.3 via npm]
+    [Install Node.js and Appium v1.22.3 via npm install -g appium@1.22.3]
+  
 
 3. Install **Android Studio and Android SDK**
    [https://developer.android.com/studio/install](https://developer.android.com/studio/install)
@@ -179,7 +180,7 @@ appium
 > **Note:** iOS testing is **not currently included in the test suite** due to the unavailability of macOS. The steps below are provided for reference to enable iOS automation in the future.
 
 1. Install **Appium Server**
-   [install Node.js and Appium v1.22.3 via npm]
+   [Install Node.js and Appium v1.22.3 via npm install -g appium@1.22.3]
 
 2. Install **Xcode** from the App Store to use the **iOS simulator** or connect a **real device**.
 
@@ -328,6 +329,7 @@ Open the report:
 ```bash
 allure open reports/allure-report
 ```
+
 
 
 
