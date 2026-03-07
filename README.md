@@ -31,7 +31,7 @@ Designed with **scalability and extensibility** in mind, the framework allows ad
      Responsible for generating **comprehensive test execution reports** that provide insights into test results, failures, and overall execution metrics.
 
 3. **Test Execution Flow:**
-   Test execution is orchestrated using a **test runner framework such as Pytest, Nose, JUnit, or TestNG**, which manages **test discovery, execution, reporting, and lifecycle hooks**.
+   Test execution is orchestrated using a **test runner framework such as Pytest**, which manages **test discovery, execution, reporting, and lifecycle hooks**.
 
 
 ### Test Architecture and Tools
@@ -329,6 +329,7 @@ Open the report:
 ```bash
 allure open reports/allure-report
 ```
+
 
 
 
