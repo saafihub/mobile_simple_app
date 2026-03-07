@@ -85,6 +85,7 @@ Designed with **scalability and extensibility** in mind, the framework allows ad
 1. Download the **SimpleLogin mobile application** for both platforms:
 
    * **Android** (`.apk`)
+   * **iOS** (.ipa)
 
 2. Create automated **test scenarios (features and stories)** for the SimpleLogin application.
 
@@ -328,6 +329,7 @@ Open the report:
 ```bash
 allure open reports/allure-report
 ```
+
 
 
 
