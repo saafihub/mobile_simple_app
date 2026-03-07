@@ -33,12 +33,15 @@ Designed with **scalability and extensibility** in mind, the framework allows ad
    Test execution is orchestrated using a **test runner framework such as Pytest, Nose, JUnit, or TestNG**, which manages **test discovery, execution, reporting, and lifecycle hooks**.
 
 
-**Test Architecture and Tools:**
+```markdown
+### Test Architecture and Tools
 
-    1. Tool & Language: Appium with Python and Selenium bindings
-    2. Design Pattern: Page Object Model (POM)
-    3. Testing Framework(Hybrid): Combines data-driven and keyword-driven.
-    4. Continuous Integration: Jenkins/GitHub Actions (Can Integrate)
+1. **Tool & Language:** Appium with Python using Selenium bindings for mobile automation.  
+2. **Design Pattern:** Page Object Model (POM) to ensure better code organization, reusability, and maintainability.  
+3. **Testing Framework (Hybrid):** Implements a hybrid approach by combining **data-driven** and **keyword-driven** testing methodologies.  
+4. **Continuous Integration:** Can be integrated with CI/CD tools such as **Jenkins** or **GitHub Actions** for automated test execution.
+```
+
 
 **Why Appium with Python bindings?**
 
@@ -146,6 +149,7 @@ Designed with **scalability and extensibility** in mind, the framework allows ad
        (a). Collect allure report using command below to get this need to install allure commandline utility to view results.
             1. allure generate reports/allure-results -o reports/allure-report --clean
             2. allure open reports/allure-report
+
 
 
 
