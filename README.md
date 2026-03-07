@@ -41,33 +41,43 @@ Designed with **scalability and extensibility** in mind, the framework allows ad
 4. **Continuous Integration:** Can be integrated with CI/CD tools such as **Jenkins** or **GitHub Actions** for automated test execution.
 
 
-**Why Appium with Python bindings?**
+### Why Use Appium with Python Bindings?
 
-    1. Appium enables automation testing for mobile apps (Android and iOS) using a single framework.
-    2. It supports multiple programming languages through the WebDriver protocol, making it flexible.
-    3. It uses the WebDriver protocol, and the Selenium Python bindings implement that protocol, allowing 
-       Python code to control mobile apps the same way Selenium controls web browsers.
-    4. Using Python + Appium + Selenium bindings provides stable WebDriver APIs, better compatibility, and reusable design 
-       patterns (e.g., Page Object Model, waits, locators).
-    5. It enables cross-platform mobile automation (Android/iOS) with familiar Selenium-style commands while leveraging 
-       Python’s simplicity and large testing ecosystem.
+1. **Cross-Platform Mobile Automation:**
+   Appium allows automation testing for **both Android and iOS applications** using a single unified framework.
 
-**Framework Structure:**
-    
-      ├── app           # applications files(*.apk and *.ipa)
-      ├── pages         # Page Object Model (POM) classes(Ui and actions) 
-          ├── locators  # Page object repository(ui locators)
-          ├── ui        # Page classes that encapsulate ui elements 
-          ├── action    # classes and methods to interact with those elements. 
-      ├── data          # Test data files
-      ├── log           # generate test logs 
-      ├── reports       # generated reports etc
-      ├── utils         # Utility classes (e.g., helper, logger etc)
-      ├── tests         # test runner files to initiate test execution
-      config.ini        # store env, device and server settings
-      pytest.ini        # init files
-      README.md         # Instruction file.
-      requirement.txt   # install dependencies
+2. **Multi-Language Support:**
+   Through the **WebDriver protocol**, Appium supports multiple programming languages, providing flexibility in choosing the preferred development language.
+
+3. **WebDriver-Based Architecture:**
+   Appium operates on the **WebDriver protocol**, and **Selenium’s Python bindings implement this protocol**, enabling Python scripts to control mobile applications in a similar way that Selenium automates web browsers.
+
+4. **Stable and Reusable Automation Design:**
+   The combination of **Python, Appium, and Selenium bindings** provides stable WebDriver APIs, improved compatibility, and supports reusable automation patterns such as **Page Object Model (POM), explicit waits, and structured locator strategies**.
+
+5. **Efficient and Scalable Automation:**
+   This stack enables **cross-platform mobile automation** using familiar **Selenium-style commands**, while benefiting from **Python’s simplicity, readability, and extensive testing ecosystem**.
+
+### Framework Structure
+
+```
+├── app/            # Application binaries (*.apk, *.ipa)
+├── pages/          # Page Object Model (POM) implementation
+│   ├── locators/   # Repository of UI locators for application elements
+│   ├── ui/         # Page classes encapsulating UI elements
+│   ├── action/     # Methods and classes that perform actions on UI elements
+├── data/           # Test data sources (e.g., JSON, Excel, etc.)
+├── log/            # Generated execution logs
+├── reports/        # Test execution reports and artifacts
+├── utils/          # Utility modules (helpers, logger, common functions)
+├── tests/          # Test cases / test runner files that trigger test execution
+│
+├── config.ini      # Environment, device, and Appium server configuration
+├── pytest.ini      # Pytest configuration and markers
+├── README.md       # Project documentation and usage instructions
+└── requirements.txt # Project dependencies for installation
+```
+
 
 **Task description:**
 
@@ -147,6 +157,7 @@ Designed with **scalability and extensibility** in mind, the framework allows ad
        (a). Collect allure report using command below to get this need to install allure commandline utility to view results.
             1. allure generate reports/allure-results -o reports/allure-report --clean
             2. allure open reports/allure-report
+
 
 
 
