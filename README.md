@@ -152,7 +152,7 @@ pip install -r requirements.txt
 
 1. Install **Appium Server**
    [https://github.com/appium/appium-desktop/releases/tag/v1.22.3-4](https://github.com/appium/appium-desktop/releases/tag/v1.22.3-4)
-   *(Alternatively install Node.js and Appium v2 via npm)*
+   *(Alternatively install Node.js and Appium v1.22.3 via npm)*
 
 2. Install **Android Studio and Android SDK**
    [https://developer.android.com/studio/install](https://developer.android.com/studio/install)
@@ -329,6 +329,7 @@ Open the report:
 ```bash
 allure open reports/allure-report
 ```
+
 
 
 
