@@ -1,15 +1,15 @@
 import allure
 import pytest
-import json, time
-import os.path as ph
+import json
+import os
 import subprocess
 from pages.action.mylogin import MyLogin
 from pages.action.emailalias import EmailAlias
 from pages.action.contactalias import ContactAlias
 from utils.log import log
-from utils.data_generator import get_random_string, get_current_date_and_time
-
-testdata = ph.join(ph.dirname(__file__), "../data/cases.json")
+from utils.data_generator import get_random_string, get_current_date_and_time, getConfig
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+testdata = getConfig('testcases', 'test_case_data', BASE_DIR)
 # Load JSON data
 with open(testdata) as f:
     test_data = json.load(f)
@@ -27,6 +27,7 @@ login_data = [(v['ename'], v['pname']) for v in test_data["login_cases"].values(
     2. Check app launched with app version available in landing page
     """)
 @pytest.mark.smoke
+@pytest.mark.regression
 def test_landing_page_once_launch(driver):
     MyLogin(driver).check_sl_app_version()
     MyLogin(driver).check_sl_app_image()
@@ -42,6 +43,7 @@ def test_landing_page_once_launch(driver):
     2. Check the given button labals/texts  in landing page
     """)
 @pytest.mark.smoke
+@pytest.mark.regression
 def test_given_landingpage_details_button_texts(driver):
     MyLogin(driver).Check_buttons_texts_available()
 
@@ -58,6 +60,7 @@ def test_given_landingpage_details_button_texts(driver):
     4. Check appropriate banner message displays.
     """)
 @pytest.mark.smoke
+@pytest.mark.regression
 @pytest.mark.parametrize("ename,pname,dsp", signup_data)
 def test_signup_details(driver, ename, pname, dsp):
     MyLogin(driver).Check_signup_error_details(ename=ename, pname=pname, dsp=dsp)
@@ -75,6 +78,7 @@ def test_signup_details(driver, ename, pname, dsp):
     4. Moved to Alias page with Appropriate text should display.
     """)
 @pytest.mark.smoke
+@pytest.mark.regression
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_given_valid_details_success_login(driver, ename, pname):
     MyLogin(driver).app_login(ename=ename, pname=pname)
@@ -93,6 +97,7 @@ def test_given_valid_details_success_login(driver, ename, pname):
     4. Moved to Alias page with Appropriate text should display.
     """)
 @pytest.mark.emailalias
+@pytest.mark.regression
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_create_alias_for_an_email(driver, ename, pname):
     MyLogin(driver).app_login(ename=ename, pname=pname)
@@ -112,6 +117,7 @@ def test_create_alias_for_an_email(driver, ename, pname):
     4. Check Email handles after alias have been created
     """)
 @pytest.mark.emailalias
+@pytest.mark.regression
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_alias_email_handle_validate(driver, ename, pname):
     MyLogin(driver).app_login(ename=ename, pname=pname)
@@ -130,6 +136,7 @@ def test_alias_email_handle_validate(driver, ename, pname):
     4. Once Alias get created, Try create an Contact email for that alias email.
     """)
 @pytest.mark.contactalias
+@pytest.mark.regression
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_contact_alias_email_creation(driver, ename, pname):
     MyLogin(driver).app_login(ename=ename, pname=pname)
@@ -148,6 +155,7 @@ def test_contact_alias_email_creation(driver, ename, pname):
     4. Once Contact Email is created, Send an Email with an Alias as Sender.
     """)
 @pytest.mark.contactalias
+@pytest.mark.regression
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_send_alias_email_contact(driver, runmode, ename, pname):
     MyLogin(driver).app_login(ename=ename, pname=pname)
@@ -172,6 +180,7 @@ def test_send_alias_email_contact(driver, runmode, ename, pname):
     6. Resume app to check session Valid to proceed to next steps.should not get reset.
     """)
 @pytest.mark.reliability
+@pytest.mark.regression
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_session_retained_after_background(driver, runmode, ename, pname):
     MyLogin(driver).app_login(ename=ename, pname=pname)
@@ -210,8 +219,8 @@ def test_session_retained_after_background(driver, runmode, ename, pname):
     4. Validate alias name created name as 'Heroldx123@simplelogin.com'.
     """)
 @pytest.mark.emailalias
+@pytest.mark.regression
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_alias_email_name(driver, ename, pname):
     MyLogin(driver).app_login(ename=ename, pname=pname)
     EmailAlias(driver).validate_email_alias()
-
