@@ -104,7 +104,7 @@ Designed with **scalability and extensibility** in mind, the framework allows ad
 
 ## Prerequisites and Setup Instructions
 
-1. Install **Python 3.12**
+1. Install **Python 3.11 or higher**
    [https://www.python.org/downloads/](https://www.python.org/downloads/)
 
 2. Clone the repository to your local machine:
@@ -329,6 +329,7 @@ Open the report:
 ```bash
 allure open reports/allure-report
 ```
+
 
 
 
