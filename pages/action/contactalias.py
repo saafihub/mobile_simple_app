@@ -3,9 +3,7 @@ from pages.ui.alias_page import AliasPage
 from pages.ui.contact_page import ContactPage
 from pages.ui.login_page import LoginPage
 from utils.log import log
-
-PADE_LOAD_TIME = 30  # sec
-
+PADE_LOAD_TIME = 30
 
 class ContactAlias(ContactPage):
     """Class to interact with EmailAlias actions"""
@@ -63,5 +61,6 @@ class ContactAlias(ContactPage):
         except AssertionError as e:
             log.error(f"Assertion failed: {e}")
             raise
+
 
 
