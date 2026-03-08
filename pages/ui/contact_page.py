@@ -6,7 +6,7 @@ from pages.ui.base_page import BasePage
 
 
 class ContactPage(BasePage):
-    """Class to interact with Contact Create Page"""
+    """Class to interact with ui elements of Contact Create Page"""
 
     @allure.step('Get text with Contact name')
     def get_text_contact(self, name: str):
@@ -78,3 +78,4 @@ class ContactPage(BasePage):
         if not elements:
             raise AssertionError("No Creationemail elements for text found")
         return elements[0].text
+
