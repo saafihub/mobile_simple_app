@@ -224,8 +224,10 @@ def test_session_retained_after_background(driver, runmode, ename, pname):
     """)
 @pytest.mark.emailalias
 @pytest.mark.regression
+@pytest.mark.e2e
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_alias_email_name(driver, ename, pname):
     MyLogin(driver).app_login(ename=ename, pname=pname)
     EmailAlias(driver).validate_email_alias()
+
 
