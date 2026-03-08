@@ -4,7 +4,6 @@ from pages.ui.alias_page import AliasPage
 from pages.ui.login_page import LoginPage
 PADE_LOAD_TIME = 30  # sec
 
-
 class EmailAlias(AliasPage):
     """Class to interact with EmailAlias actions"""
     
@@ -58,4 +57,5 @@ class EmailAlias(AliasPage):
         except AssertionError as e:
             log.error(f"Assertion failed: {e}")
             raise
+
 
