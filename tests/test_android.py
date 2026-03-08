@@ -98,6 +98,7 @@ def test_given_valid_details_success_login(driver, ename, pname):
     """)
 @pytest.mark.emailalias
 @pytest.mark.regression
+@pytest.mark.e2e
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_create_alias_for_an_email(driver, ename, pname):
     MyLogin(driver).app_login(ename=ename, pname=pname)
@@ -118,6 +119,7 @@ def test_create_alias_for_an_email(driver, ename, pname):
     """)
 @pytest.mark.emailalias
 @pytest.mark.regression
+@pytest.mark.e2e
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_alias_email_handle_validate(driver, ename, pname):
     MyLogin(driver).app_login(ename=ename, pname=pname)
@@ -137,6 +139,7 @@ def test_alias_email_handle_validate(driver, ename, pname):
     """)
 @pytest.mark.contactalias
 @pytest.mark.regression
+@pytest.mark.e2e
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_contact_alias_email_creation(driver, ename, pname):
     MyLogin(driver).app_login(ename=ename, pname=pname)
@@ -156,6 +159,7 @@ def test_contact_alias_email_creation(driver, ename, pname):
     """)
 @pytest.mark.contactalias
 @pytest.mark.regression
+@pytest.mark.e2e
 @pytest.mark.parametrize("ename,pname", login_data)
 def test_send_alias_email_contact(driver, runmode, ename, pname):
     MyLogin(driver).app_login(ename=ename, pname=pname)
@@ -224,3 +228,4 @@ def test_session_retained_after_background(driver, runmode, ename, pname):
 def test_alias_email_name(driver, ename, pname):
     MyLogin(driver).app_login(ename=ename, pname=pname)
     EmailAlias(driver).validate_email_alias()
+
