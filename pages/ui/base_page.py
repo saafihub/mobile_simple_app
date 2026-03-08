@@ -13,7 +13,7 @@ POLL_FREQUENCY = 0.2
 
 
 class BasePage:
-    """Class with common actions"""
+    """Class with common ui elements of pages"""
 
     def __init__(self, driver):
         self.driver = driver
@@ -137,3 +137,4 @@ class BasePage:
 
     def get_app_back(self):
         self.wait.until(lambda d: d.query_app_state("io.simplelogin.android") == 5)
+
