@@ -17,10 +17,6 @@ warnings.filterwarnings(
     message="Embedding username and password in URL could be insecure"
 )
 
-# =========================================================
-# -------------------- GENERAL CONFIG ---------------------
-# =========================================================
-
 PAGE_LOAD_TIME = 30
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 APP_PATH_APK = getConfig("localrun", "APP_PATH_APK", BASE_DIR)
@@ -33,11 +29,6 @@ APP_ID = getConfig("devicefarm", "APP_ID")
 BROWSERSTACK_DEVICES = getConfig("devicefarm", "BROWSERSTACK_DEVICES")
 ALLURE_RESULTS_DIR = getConfig("reportallure", "ALLURE_RESULTS_DIR")
 ALLURE_REPORT_DIR = getConfig("reportallure", "ALLURE_REPORT_DIR")
-
-
-# =========================================================
-# ---------------- PYTEST CLI OPTION ----------------------
-# =========================================================
 
 def pytest_addoption(parser):
     parser.addoption(
@@ -52,11 +43,6 @@ def pytest_addoption(parser):
 @pytest.fixture(scope="session")
 def runmode(request):
     return request.config.getoption("--runmode")
-
-
-# =========================================================
-# ------------ ALLURE ENVIRONMENT GENERATION --------------
-# =========================================================
 
 def _write_allure_environment(runmode):
     os.makedirs(ALLURE_RESULTS_DIR, exist_ok=True)
@@ -83,11 +69,6 @@ def _write_allure_environment(runmode):
     with open(f"{ALLURE_RESULTS_DIR}/environment.properties", "w") as f:
         f.write("\n".join(env_data))
 
-
-# =========================================================
-# ------------- ALLURE EXECUTOR INFORMATION ---------------
-# =========================================================
-
 def _write_executor():
     executor_data = {
         "name": "Automation Execution",
@@ -99,11 +80,6 @@ def _write_executor():
     with open(f"{ALLURE_RESULTS_DIR}/executor.json", "w") as f:
         json.dump(executor_data, f, indent=4)
 
-
-# =========================================================
-# ---------------- HISTORY TREND SUPPORT ------------------
-# =========================================================
-
 def _copy_allure_history():
     history_src = f"{ALLURE_REPORT_DIR}/history"
     history_dest = f"{ALLURE_RESULTS_DIR}/history"
@@ -111,10 +87,6 @@ def _copy_allure_history():
     if os.path.exists(history_src):
         shutil.copytree(history_src, history_dest, dirs_exist_ok=True)
 
-
-# =========================================================
-# ---------------- SESSION START HOOK ---------------------
-# =========================================================
 
 def pytest_sessionstart(session):
     runmode = session.config.getoption("--runmode")
@@ -125,10 +97,6 @@ def pytest_sessionstart(session):
     _write_executor()
     _copy_allure_history()
 
-
-# =========================================================
-# ---------------- DRIVER FIXTURE -------------------------
-# =========================================================
 
 @pytest.fixture(scope="function")
 def driver(request):
@@ -141,7 +109,6 @@ def driver(request):
 
     yield drv
 
-    # ================= TEARDOWN =================
     try:
         if runmode == "browserstack":
             result = getattr(request.node, "test_result", {})
@@ -168,10 +135,6 @@ def driver(request):
         print(f"[WARN] Teardown issue: {e}")
 
 
-# =========================================================
-# ---------------- LOCAL DRIVER ---------------------------
-# =========================================================
-
 def _get_local_driver():
     caps = {
         "platformName": "Android",
@@ -185,10 +148,6 @@ def _get_local_driver():
     log.info(f"Device: {CURRENT_DEVICE}")
     return webdriver.Remote(LOCAL_HOST, caps)
 
-
-# =========================================================
-# ---------------- BROWSERSTACK DRIVER --------------------
-# =========================================================
 
 def _get_browserstack_driver(request):
     device_index = int(os.getenv("DEVICE_INDEX", 0))
@@ -216,10 +175,6 @@ def _get_browserstack_driver(request):
     return webdriver.Remote(url, caps)
 
 
-# =========================================================
-# --------- PYTEST HOOK (RESULT COLLECTION ONLY) ----------
-# =========================================================
-
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
     outcome = yield
@@ -230,7 +185,6 @@ def pytest_runtest_makereport(item, call):
 
     driver = item.funcargs.get("driver")
 
-    # ---------------- Allure Screenshot ----------------
     if report.failed and driver:
         try:
             allure.attach(
@@ -241,14 +195,12 @@ def pytest_runtest_makereport(item, call):
         except Exception:
             pass
 
-    # -------- Store result for teardown --------
     if report.failed:
         reason = report.longreprtext[:200].replace('"', "'")
         item.test_result = {"status": "failed", "reason": reason}
     else:
         item.test_result = {"status": "passed", "reason": "Test passed"}
 
-    # -------- Map pytest markers to Allure tags automatically --------
     MARKER_TO_ALLURE_TAGS = ["smoke", "regression", "compatibility", "critical"]
     for marker_name in MARKER_TO_ALLURE_TAGS:
         if marker_name in item.keywords:
@@ -257,11 +209,6 @@ def pytest_runtest_makereport(item, call):
             except Exception:
                 # fail silently if Allure is not configured
                 pass
-
-
-# =========================================================
-# ----------- DEVICE METADATA IN ALLURE REPORT ------------
-# =========================================================
 
 @pytest.fixture(autouse=True)
 def _add_device_labels(request):
@@ -278,3 +225,4 @@ def _add_device_labels(request):
         allure.dynamic.label("device", device["deviceName"])
         allure.dynamic.label("platformVersion", device["platformVersion"])
         allure.dynamic.label("execution", "browserstack")
+
