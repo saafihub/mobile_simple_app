@@ -5,7 +5,7 @@ from pages.ui.base_page import BasePage
 
 
 class AliasPage(BasePage):
-    """Class to interact with Alias Page"""
+    """Class to interact with ui elements Alias Page """
 
     @allure.step('Click on Alias Addmenu(+) icon')
     def addMenu(self):
@@ -67,3 +67,4 @@ class AliasPage(BasePage):
     @allure.step('Get all button text details of landing page')
     def all_texts_page(self):
         return self.find_elements(Commoncont.PageTextview)
+
