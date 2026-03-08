@@ -7,6 +7,7 @@ PADE_LOAD_TIME = 30  # sec
 
 class EmailAlias(AliasPage):
     """Class to interact with EmailAlias actions"""
+    
     def __init__(self, driver):
         super().__init__(driver)
         self.alias_page = AliasPage(driver)
@@ -57,3 +58,4 @@ class EmailAlias(AliasPage):
         except AssertionError as e:
             log.error(f"Assertion failed: {e}")
             raise
+
