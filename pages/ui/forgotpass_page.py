@@ -17,7 +17,6 @@ class ForgotPassPage(BasePage):
 
     @allure.step('Click Cancel action button on forgot password page')
     def click_cancel_btn(self):
-        # self.wait_element_visible(CreateLogin.forgot_cancel_btn)
         self.find_element(CreateLogin.forgot_cancel_btn, 'clickable').click()
 
     @allure.step('Check Forgot password header title')
@@ -26,7 +25,6 @@ class ForgotPassPage(BasePage):
 
     @allure.step('Enter Forgot password details in textfield')
     def forgot_email(self, email):
-        # self.wait_element_visible(CreateLogin.forgot_email_id)
         self.find_element(CreateLogin.forgot_email_id).send_keys(email)
 
     @allure.step('Click Reset action button on forgot password page')
@@ -45,3 +43,4 @@ class ForgotPassPage(BasePage):
     def proton_back_btn(self):
         # self.wait_element_visible(CreateLogin.close_proton)
         self.find_element(CreateLogin.close_proton, 'clickable').click()
+
