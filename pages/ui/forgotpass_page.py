@@ -5,7 +5,7 @@ from pages.ui.base_page import BasePage
 
 
 class ForgotPassPage(BasePage):
-    """Class to interact with Forgot Password Page"""
+    """Class to interact with ui elements of Forgot Password Page"""
 
     @allure.step('Click forgot password link on landing page')
     def click_forgot_pword(self):
@@ -43,4 +43,5 @@ class ForgotPassPage(BasePage):
     def proton_back_btn(self):
         # self.wait_element_visible(CreateLogin.close_proton)
         self.find_element(CreateLogin.close_proton, 'clickable').click()
+
 
