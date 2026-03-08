@@ -5,7 +5,7 @@ from pages.ui.base_page import BasePage
 
 
 class LoginPage(BasePage):
-    """Class to interact with Sign in/up Page"""
+    """Class to interact with ui elements of Login Page"""
 
     @allure.step('Enter Email into textfield')
     def email(self, name: str):
@@ -100,4 +100,5 @@ class LoginPage(BasePage):
 
     def get_app_back_activate(self):
         self.get_app_back()
+
 
