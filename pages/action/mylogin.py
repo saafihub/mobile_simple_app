@@ -4,9 +4,7 @@ from pages.ui.login_page import LoginPage
 from pages.ui.alias_page import AliasPage
 from pages.ui.forgotpass_page import ForgotPassPage
 from utils.log import log
-
 PADE_LOAD_TIME = 30  # sec
-
 
 class MyLogin(BasePage):
     """Class to interact with Login actions"""
@@ -202,3 +200,4 @@ class MyLogin(BasePage):
     @allure.step('Get app from background to activate')
     def get_app_back(self):
         self.login_page.get_app_back_activate()
+
