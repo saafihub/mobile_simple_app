@@ -201,7 +201,7 @@ def pytest_runtest_makereport(item, call):
     else:
         item.test_result = {"status": "passed", "reason": "Test passed"}
 
-    MARKER_TO_ALLURE_TAGS = ["smoke", "regression", "compatibility", "critical"]
+    MARKER_TO_ALLURE_TAGS = ["smoke", "regression", "compatibility", "critical", "reliability", "e2e"]
     for marker_name in MARKER_TO_ALLURE_TAGS:
         if marker_name in item.keywords:
             try:
@@ -225,4 +225,5 @@ def _add_device_labels(request):
         allure.dynamic.label("device", device["deviceName"])
         allure.dynamic.label("platformVersion", device["platformVersion"])
         allure.dynamic.label("execution", "browserstack")
+
 
