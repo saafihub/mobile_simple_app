@@ -202,6 +202,7 @@ appium
 If the device name does not match `CURRENT_DEVICE`, update the value accordingly.
 
 2. Run **Android tests**
+
 Open a new CommandLine(CMD) window to run tests, if `Appium server` started in a CMD already.
 
 
@@ -332,6 +333,7 @@ Open the report:
 ```bash
 allure open reports/allure-report
 ```
+
 
 
 
