@@ -193,7 +193,7 @@ appium
 
 ---
 
-## Running Tests Locally
+## Running Tests Locally *(Emulator / Real Device / Bluestacks)*
 
 *(Emulator / Real Device / Bluestacks)*
 
@@ -330,6 +330,7 @@ Open the report:
 ```bash
 allure open reports/allure-report
 ```
+
 
 
 
