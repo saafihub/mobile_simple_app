@@ -270,7 +270,7 @@ pytest tests/test_android.py -n 2 --runmode=browserstack --alluredir=reports/all
 ---
 
 ## Re-running Failed Tests
-*(Tests will re-run again, once if tests get failed)*
+*(Tests will re-run again, if tests get failed while in test execution)*
 ### Local Execution
 
 ```bash
@@ -334,6 +334,7 @@ Open the report:
 ```bash
 allure open reports/allure-report
 ```
+
 
 
 
