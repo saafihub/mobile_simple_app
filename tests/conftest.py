@@ -26,7 +26,10 @@ ACTIVITY = getConfig("localrun", "ACTIVITY")
 BROWSERSTACK_USERNAME = getConfig("devicefarm", "BROWSERSTACK_USERNAME")
 BROWSERSTACK_ACCESS_KEY = getConfig("devicefarm", "BROWSERSTACK_ACCESS_KEY")
 APP_ID = getConfig("devicefarm", "APP_ID")
-BROWSERSTACK_DEVICES = getConfig("devicefarm", "BROWSERSTACK_DEVICES")
+devices_file = getConfig('devicefarm', 'BROWSERSTACK_DEVICES', BASE_DIR)
+with open(devices_file) as f:
+    devices = json.load(f)
+BROWSERSTACK_DEVICES = devices["browserstack"]
 ALLURE_RESULTS_DIR = getConfig("reportallure", "ALLURE_RESULTS_DIR")
 ALLURE_REPORT_DIR = getConfig("reportallure", "ALLURE_REPORT_DIR")
 
@@ -225,5 +228,6 @@ def _add_device_labels(request):
         allure.dynamic.label("device", device["deviceName"])
         allure.dynamic.label("platformVersion", device["platformVersion"])
         allure.dynamic.label("execution", "browserstack")
+
 
 
