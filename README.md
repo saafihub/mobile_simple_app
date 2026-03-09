@@ -138,6 +138,7 @@ activate
 * Return to the project root folder:
 
 ```bash
+cd ../..
 cd mobile_simple_app
 ```
 
@@ -330,6 +331,7 @@ Open the report:
 ```bash
 allure open reports/allure-report
 ```
+
 
 
 
