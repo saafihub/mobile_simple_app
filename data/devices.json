@@ -1,0 +1,6 @@
+{
+  "browserstack": [
+    {"deviceName": "Samsung Galaxy S22", "platformVersion": "12.0"},
+    {"deviceName": "Google Pixel 7", "platformVersion": "13.0"}
+  ]
+}
