@@ -193,7 +193,7 @@ appium
 
 ---
 
-## Running Tests Locally *(Emulator / Real Device / Bluestacks)*
+## Running Tests Locally
 
 *(Emulator / Real Device / Bluestacks)*
 
@@ -202,6 +202,8 @@ appium
 If the device name does not match `CURRENT_DEVICE`, update the value accordingly.
 
 2. Run **Android tests**
+Open a new CommandLine(CMD) window to run tests, if `Appium server` started in a CMD already.
+
 
 ```bash
 pytest tests/test_android.py --runmode=local --alluredir=reports/allure-results
@@ -330,6 +332,7 @@ Open the report:
 ```bash
 allure open reports/allure-report
 ```
+
 
 
 
