@@ -132,7 +132,7 @@ python -m venv mobile_tests
 
 ```bash
 cd mobile_tests\Scripts
->activate
+activate
 ```
 
 * Return to the project root folder:
@@ -330,6 +330,7 @@ Open the report:
 ```bash
 allure open reports/allure-report
 ```
+
 
 
 
